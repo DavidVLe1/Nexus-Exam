@@ -1,0 +1,32 @@
+<%= form_with(model: exam) do |form| %>
+  <% if exam.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+        <% exam.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :max_num_questions, style: "display: block" %>
+    <%= form.number_field :max_num_questions %>
+  </div>
+
+  <div>
+    <%= form.label :max_duration, style: "display: block" %>
+    <%= form.number_field :max_duration %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
