@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landing/index'
+  root "landing#index"
   resources :exams
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
