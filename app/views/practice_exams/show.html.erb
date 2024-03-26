@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @practice_exam %>
+
+<div>
+  <%= link_to "Edit this practice exam", edit_practice_exam_path(@practice_exam) %> |
+  <%= link_to "Back to practice exams", practice_exams_path %>
+
+  <%= button_to "Destroy this practice exam", @practice_exam, method: :delete %>
+</div>

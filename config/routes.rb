@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :assembled_exam_questions
+  resources :practice_exams
   resources :question_choices
   resources :questions
   get 'landing/index'

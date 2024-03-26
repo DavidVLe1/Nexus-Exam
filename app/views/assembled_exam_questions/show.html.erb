@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @assembled_exam_question %>
+
+<div>
+  <%= link_to "Edit this assembled exam question", edit_assembled_exam_question_path(@assembled_exam_question) %> |
+  <%= link_to "Back to assembled exam questions", assembled_exam_questions_path %>
+
+  <%= button_to "Destroy this assembled exam question", @assembled_exam_question, method: :delete %>
+</div>
