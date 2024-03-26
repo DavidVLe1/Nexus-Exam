@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :question_choices
   resources :questions
   get 'landing/index'
   root "landing#index"

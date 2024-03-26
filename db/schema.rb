@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_191531) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_202305) do
   create_table "exams", force: :cascade do |t|
     t.string "name"
     t.integer "max_num_questions"
     t.integer "max_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "question_choices", force: :cascade do |t|
+    t.string "response", null: false
+    t.boolean "is_correct", null: false
+    t.integer "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_choices_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -43,5 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_191531) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "question_choices", "questions"
   add_foreign_key "questions", "exams"
 end
