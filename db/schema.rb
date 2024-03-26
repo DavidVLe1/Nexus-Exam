@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_202305) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_202804) do
   create_table "exams", force: :cascade do |t|
     t.string "name"
     t.integer "max_num_questions"
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_202305) do
 
   create_table "questions", force: :cascade do |t|
     t.integer "exam_id", null: false
-    t.string "prompt"
+    t.string "prompt", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exam_id"], name: "index_questions_on_exam_id"

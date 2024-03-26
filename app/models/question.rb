@@ -3,7 +3,7 @@
 # Table name: questions
 #
 #  id         :integer          not null, primary key
-#  prompt     :string
+#  prompt     :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  exam_id    :integer          not null
