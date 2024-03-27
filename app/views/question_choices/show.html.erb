@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @question_choice %>
+
+<div>
+  <%= link_to "Edit this question choice", edit_question_choice_path(@question_choice) %> |
+  <%= link_to "Back to question choices", question_choices_path %>
+
+  <%= button_to "Destroy this question choice", @question_choice, method: :delete %>
+</div>

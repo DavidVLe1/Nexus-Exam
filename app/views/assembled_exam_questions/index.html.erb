@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Assembled exam questions</h1>
+
+<div id="assembled_exam_questions">
+  <% @assembled_exam_questions.each do |assembled_exam_question| %>
+    <%= render assembled_exam_question %>
+    <p>
+      <%= link_to "Show this assembled exam question", assembled_exam_question %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New assembled exam question", new_assembled_exam_question_path %>

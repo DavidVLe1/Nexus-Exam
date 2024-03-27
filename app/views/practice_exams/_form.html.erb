@@ -1,0 +1,52 @@
+<%= form_with(model: practice_exam) do |form| %>
+  <% if practice_exam.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(practice_exam.errors.count, "error") %> prohibited this practice_exam from being saved:</h2>
+
+      <ul>
+        <% practice_exam.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :exam_id, style: "display: block" %>
+    <%= form.text_field :exam_id %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :custom_max_num_questions, style: "display: block" %>
+    <%= form.number_field :custom_max_num_questions %>
+  </div>
+
+  <div>
+    <%= form.label :custom_max_duration, style: "display: block" %>
+    <%= form.number_field :custom_max_duration %>
+  </div>
+
+  <div>
+    <%= form.label :start_time, style: "display: block" %>
+    <%= form.datetime_field :start_time %>
+  </div>
+
+  <div>
+    <%= form.label :end_time, style: "display: block" %>
+    <%= form.datetime_field :end_time %>
+  </div>
+
+  <div>
+    <%= form.label :score, style: "display: block" %>
+    <%= form.text_field :score %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

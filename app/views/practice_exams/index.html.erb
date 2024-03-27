@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Practice exams</h1>
+
+<div id="practice_exams">
+  <% @practice_exams.each do |practice_exam| %>
+    <%= render practice_exam %>
+    <p>
+      <%= link_to "Show this practice exam", practice_exam %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New practice exam", new_practice_exam_path %>
