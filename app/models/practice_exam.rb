@@ -26,4 +26,6 @@
 class PracticeExam < ApplicationRecord
   belongs_to :exam
   belongs_to :user
+
+  has_many :assembled_exam_questions
 end

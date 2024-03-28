@@ -19,4 +19,6 @@
 #
 class QuestionChoice < ApplicationRecord
   belongs_to :question
+
+  has_many :assembled_exam_questions
 end

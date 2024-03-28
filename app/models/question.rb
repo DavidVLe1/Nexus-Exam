@@ -19,4 +19,6 @@
 class Question < ApplicationRecord
   belongs_to :exam
   validates :prompt, uniqueness: { case_sensitive: false }
+
+  has_many :assembled_exam_questions
 end

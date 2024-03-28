@@ -24,5 +24,10 @@
 class AssembledExamQuestion < ApplicationRecord
   belongs_to :practice_exam
   belongs_to :question
-  belongs_to :question_choice
+
+
+# Below specifies that a question choice is not required to be present.
+# Allows flexibility for instances where the user hasn't selected a choice,
+# such as when time runs out during an exam submission.
+  belongs_to :question_choice ,optional: true
 end

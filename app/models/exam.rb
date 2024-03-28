@@ -10,4 +10,6 @@
 #  updated_at        :datetime         not null
 #
 class Exam < ApplicationRecord
+  has_many :questions
+  has_many :practice_exams
 end

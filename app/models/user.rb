@@ -25,4 +25,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :practice_exams
+  has_many :assembled_exam_questions, through: :practice_exams
 end
