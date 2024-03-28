@@ -1,6 +1,6 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /exams or /exams.json
   def index
     @exams = Exam.all

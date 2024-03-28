@@ -1,6 +1,6 @@
 class QuestionChoicesController < ApplicationController
   before_action :set_question_choice, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /question_choices or /question_choices.json
   def index
     @question_choices = QuestionChoice.all

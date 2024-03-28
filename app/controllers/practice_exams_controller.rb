@@ -1,6 +1,6 @@
 class PracticeExamsController < ApplicationController
   before_action :set_practice_exam, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /practice_exams or /practice_exams.json
   def index
     @practice_exams = PracticeExam.all
