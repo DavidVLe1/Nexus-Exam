@@ -1,6 +1,6 @@
 class AssembledExamQuestionsController < ApplicationController
   before_action :set_assembled_exam_question, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /assembled_exam_questions or /assembled_exam_questions.json
   def index
     @assembled_exam_questions = AssembledExamQuestion.all
