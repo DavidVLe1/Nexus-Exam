@@ -1,54 +1,39 @@
-# Rails Template
+# Exam Management System
 
-This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
+Welcome to the Exam Management System! This application allows users to create and take exams, track their progress, and manage their account details.
 
-- Ruby version: `3.2.1`
-- Rails version: `7.0.4.3`
+## Features
 
+- **User Authentication**: Users can sign up, log in, and log out securely using Devise.
+- **Exam Creation**: Admins can create exams with customizable parameters such as the number of questions and duration.
+- **Practice Exams**: Users can take practice exams based on predefined exam templates.
+- **Question Bank**: A repository of questions for admins to choose from when creating exams.
+- **Multiple Choice**: Support for multiple-choice questions with correct and incorrect options.
+- **Exam Timer**: Countdown timer for users to complete exams within a specified time limit.
+- **Scoring**: Automatic scoring and feedback for completed exams.
+- **User Profiles**: Users can view and update their profile details, including username, first name, and last name.
 
-We've added additional Ruby gems and other software that aren't automatically available in a new Rails app.
+## Installation
 
-### Additional gems:
+1. Clone the repository:
+- ```git clone https://github.com/yourusername/exam-management-system.git```
+2. Install dependencies:
+- ```bundle install```
+3. Set up the database:
+- ```rails db:create```
+- ```rails db:migrate```
+4. Start the Rails server:
+- ```rails server```
+5. Access the application in your web browser at 
+- `http://localhost:3000`.
+## Usage
 
-- [`appdev_support`](https://github.com/firstdraft/appdev_support)
-- [`annotate`](https://github.com/ctran/annotate_models)
-- [`awesome_print`](https://github.com/awesome-print/awesome_print)
-- [`better_errors`](https://github.com/BetterErrors/better_errors)
-- [`binding_of_caller`](https://github.com/banister/binding_of_caller)
-- [`dotenv-rails`](https://github.com/bkeepers/dotenv)
-- [`draft_generators`](https://github.com/firstdraft/draft_generators/)
-- [`draft_matchers`](https://github.com/jelaniwoods/draft_matchers/)
-- [`devise`](https://github.com/heartcombo/devise)
-- [`faker`](https://github.com/faker-ruby/faker)
-- [`grade_runner`](https://github.com/firstdraft/grade_runner/)
-- [`htmlbeautifier`](https://github.com/threedaymonk/htmlbeautifier/)
-- [`http`](https://github.com/httprb/http)
-- [`pry_rails`](https://github.com/pry/pry-rails)
-- [`rails_db`](https://github.com/igorkasyanchuk/rails_db)
-- [`rails-erd`](https://github.com/voormedia/rails-erd)
-- [`rspec-html-matchers`](https://github.com/kucaahbe/rspec-html-matchers)
-- [`rspec-rails`](https://github.com/rspec/rspec-rails)
-- [`rufo`](https://github.com/ruby-formatter/rufo)
-- [`specs_to_readme`](https://github.com/firstdraft/specs_to_readme)
-- [`table_print`](https://github.com/arches/table_print)
-- [`web_git`](https://github.com/firstdraft/web_git)
-- [`webmock`](https://github.com/bblimke/webmock)
+1. Sign up for a new account or log in if you already have one.
+2. Explore the available exams and select one to take.
+3. Complete the exam within the allotted time and submit your answers.
+4. View your exam scores and track your progress in the dashboard.
 
-### Additional software:
-- OS Ubuntu 20.04.5 LTS
-- Chromedriver
-- Fly.io's `flyctl`
-- Google Chrome (headless browser)
-- Graphviz
-- Heroku 
-- Node JS 18
-- NPM 8.19.3
-- Parity
-- Postgresql 12
-- Redis
-- Yarn
+## Contributing
 
-### VS Code extensions:
-- aliariff.vscode-erb-beautify
-- mbessey.vscode-rufo
-- vortizhe.simple-ruby-erb
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes.
+
