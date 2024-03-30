@@ -5,8 +5,8 @@
 #  id                       :integer          not null, primary key
 #  custom_max_duration      :integer          not null
 #  custom_max_num_questions :integer          not null
-#  end_time                 :datetime         not null
-#  score                    :float            not null
+#  end_time                 :datetime
+#  score                    :float
 #  start_time               :datetime         not null
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null

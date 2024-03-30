@@ -190,14 +190,13 @@ task sample_data: :environment do
       prompt: q,
     )
 
-    # Create correct choice
+    # Create question choices in the database.
     QuestionChoice.create(
       question: a_question,
       response: correct_answer,
       is_correct: true,
     )
-
-    # Create three incorrect choices
+    ## Create three incorrect choices
     incorrect_choices = correct_answers.reject { |choice| choice == correct_answer }
     3.times do
       incorrect_choice = incorrect_choices.sample
@@ -210,11 +209,25 @@ task sample_data: :environment do
       incorrect_choices.delete(incorrect_choice)
     end
   end
+  ########
+
+  # Select a random user from the generated users array
+  selected_user = User.all.sample
+  # Create a new instance of PracticeExam
+  practice_exam = PracticeExam.create(
+    exam:aws_exam,
+    user:selected_user,
+    custom_max_num_questions:10,
+    custom_max_duration:10,
+    start_time: Time.now,
+  )
+
   ########################################
-  # Create question choices in the database.
 
   p "There are now #{User.count} users."
   p "There are now #{Exam.count} exams."
   p "There are now #{Question.count} questions."
   p "There are now #{QuestionChoice.count} choices."
+  p "There are now #{AssembledExamQuestion.count} assembled questions for exams."
+  p "There are now #{PracticeExam.count} practice exam."
 end
