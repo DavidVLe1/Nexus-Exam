@@ -225,18 +225,32 @@ task sample_data: :environment do
   # Select a subset of questions and their corresponding choices for this practice exam
   selected_questions = Question.all.sample(3)
 
-  # Select a subset of questions and their corresponding choices for this practice exam
-  selected_questions = Question.all.sample(3)
+# Create associated AssembledExamQuestions for this practice exam
+selected_questions.each do |question|
+  # Fetch all choices associated with the current question
+  choices = question.question_choices.to_a
 
-  # Create associated AssembledExamQuestions for this practice exam
-  selected_questions.each do |question|
-    choices = question.question_choices
+  # Fetch the correct choice for the current question
+  correct_choice = choices.find(&:is_correct)
+
+  # Remove the correct choice from the array
+  choices.delete(correct_choice)
+
+  # Shuffle the remaining choices to randomize the order
+  choices.shuffle!
+
+  # Take the correct choice and three false choices
+  selected_choices = [correct_choice] + choices.take(3)
+
+  # Create an AssembledExamQuestion for each selected choice
+  selected_choices.each do |choice|
     AssembledExamQuestion.create(
       practice_exam: practice_exam,
       question: question,
-      question_choice: choices.sample,  # Change 'question_choices' to 'question_choice'
+      question_choice: choice,
     )
   end
+end
 
   p "There are now #{User.count} users."
   p "There are now #{Exam.count} exams."
