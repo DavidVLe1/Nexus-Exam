@@ -215,14 +215,28 @@ task sample_data: :environment do
   selected_user = User.all.sample
   # Create a new instance of PracticeExam
   practice_exam = PracticeExam.create(
-    exam:aws_exam,
-    user:selected_user,
-    custom_max_num_questions:10,
-    custom_max_duration:10,
+    exam: aws_exam,
+    user: selected_user,
+    custom_max_num_questions: 10,
+    custom_max_duration: 10,
     start_time: Time.now,
   )
 
-  ########################################
+  # Select a subset of questions and their corresponding choices for this practice exam
+  selected_questions = Question.all.sample(3)
+
+  # Select a subset of questions and their corresponding choices for this practice exam
+  selected_questions = Question.all.sample(3)
+
+  # Create associated AssembledExamQuestions for this practice exam
+  selected_questions.each do |question|
+    choices = question.question_choices
+    AssembledExamQuestion.create(
+      practice_exam: practice_exam,
+      question: question,
+      question_choice: choices.sample,  # Change 'question_choices' to 'question_choice'
+    )
+  end
 
   p "There are now #{User.count} users."
   p "There are now #{Exam.count} exams."

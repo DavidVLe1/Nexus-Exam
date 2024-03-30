@@ -21,4 +21,5 @@ class Question < ApplicationRecord
   validates :prompt, uniqueness: { case_sensitive: false }
 
   has_many :assembled_exam_questions
+  has_many :question_choices, dependent: :destroy
 end

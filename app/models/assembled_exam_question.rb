@@ -30,4 +30,5 @@ class AssembledExamQuestion < ApplicationRecord
 # Allows flexibility for instances where the user hasn't selected a choice,
 # such as when time runs out during an exam submission.
   belongs_to :question_choice ,optional: true
+  
 end
