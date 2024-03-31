@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_220326) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_30_080502) do
   create_table "assembled_exam_questions", force: :cascade do |t|
     t.integer "practice_exam_id", null: false
     t.integer "question_id", null: false
@@ -36,8 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_220326) do
     t.integer "custom_max_num_questions", null: false
     t.integer "custom_max_duration", null: false
     t.datetime "start_time", null: false
-    t.datetime "end_time", null: false
-    t.float "score", null: false
+    t.datetime "end_time"
+    t.float "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exam_id"], name: "index_practice_exams_on_exam_id"
