@@ -223,34 +223,42 @@ task sample_data: :environment do
   )
 
   # Select a subset of questions and their corresponding choices for this practice exam
-  selected_questions = Question.all.sample(3)
+  selected_questions = Question.all.sample(10)
 
-# Create associated AssembledExamQuestions for this practice exam
-selected_questions.each do |question|
-  # Fetch all choices associated with the current question
-  choices = question.question_choices.to_a
+  # Create associated AssembledExamQuestions for this practice exam
+  selected_questions.each do |question|
+    # Fetch all choices associated with the current question
+    choices = question.question_choices.to_a
 
-  # Fetch the correct choice for the current question
-  correct_choice = choices.find(&:is_correct)
+    # Fetch the correct choice for the current question
+    correct_choice = choices.find(&:is_correct)
 
-  # Remove the correct choice from the array
-  choices.delete(correct_choice)
+    # Remove the correct choice from the array
+    choices.delete(correct_choice)
 
-  # Shuffle the remaining choices to randomize the order
-  choices.shuffle!
+    # Shuffle the remaining choices to randomize the order
+    choices.shuffle!
 
-  # Take the correct choice and three false choices
-  selected_choices = [correct_choice] + choices.take(3)
+    # Take the correct choice and three false choices
+    selected_choices = [correct_choice] + choices.take(3)
 
-  # Create an AssembledExamQuestion for each selected choice
-  selected_choices.each do |choice|
-    AssembledExamQuestion.create(
-      practice_exam: practice_exam,
-      question: question,
-      question_choice: choice,
-    )
+    # Create an AssembledExamQuestion for each selected choice
+    selected_choices.each do |choice|
+      AssembledExamQuestion.create(
+        practice_exam: practice_exam,
+        question: question,
+        question_choice: choice,
+      )
+    end
   end
-end
+
+  # Assuming the exam is completed or submitted, and with score calculated...
+  # User finished with 90% and the exam ended 5 minutes after it started
+  score = 90
+  end_time = Time.now + 5.minutes
+
+  # Update the initial practice exam instance with the calculated score and end time
+  practice_exam.update(score: score, end_time: end_time)
 
   p "There are now #{User.count} users."
   p "There are now #{Exam.count} exams."
