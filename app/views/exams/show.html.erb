@@ -3,8 +3,9 @@
 <%= render @exam %>
 
 <div>
-  <%= link_to "Edit this exam", edit_exam_path(@exam) %> |
+  <!--<%= link_to "Edit this exam", edit_exam_path(@exam) %>--> 
+  <%= button_to 'Start Practice Exam', start_practice_exam_path(@exam), method: :post %> |
   <%= link_to "Back to exams", exams_path %>
 
-  <%= button_to "Destroy this exam", @exam, method: :delete %>
+  <!--<%= button_to "Destroy this exam", @exam, method: :delete %>-->
 </div>

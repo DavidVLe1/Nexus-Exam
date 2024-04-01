@@ -18,6 +18,33 @@ class ExamsController < ApplicationController
   # GET /exams/1/edit
   def edit
   end
+  # POST that creates initial practice exam.
+  def start_practice
+    @exam = Exam.find(params[:id])
+    @practice_exam = PracticeExam.create(
+      exam: @exam,
+      user: current_user,
+      custom_max_num_questions: 10,
+      custom_max_duration: 10,
+      start_time: Time.now
+    )
+    assemble_exam_questions(@practice_exam)
+    redirect_to exam_path(@exam)
+  end
+  
+  #POST that updates that initial practice exam.
+  def submit_practice
+    @practice_exam = PracticeExam.find(params[:id])
+    # Handle submission logic to calculate score
+
+    # Update practice exam with score and end time
+    @practice_exam.update(
+      score: 10, #calculate_score(params[:answers]), # Need to Implement this method to calculate the score
+      end_time: Time.now
+    )
+    redirect_to exams_path
+  end
+
 
   # POST /exams or /exams.json
   def create
@@ -66,5 +93,24 @@ class ExamsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def exam_params
       params.require(:exam).permit(:name, :max_num_questions, :max_duration)
+    end
+    
+    #Creates assembled exam questions
+    def assemble_exam_questions(practice_exam)
+      selected_questions = Question.all.sample(10)
+      selected_questions.each do |question|
+        choices = question.question_choices.to_a
+        correct_choice = choices.find(&:is_correct)
+        choices.delete(correct_choice)
+        choices.shuffle!
+        selected_choices = [correct_choice] + choices.take(3)
+        selected_choices.each do |choice|
+          AssembledExamQuestion.create(
+            practice_exam: practice_exam,
+            question: question,
+            question_choice: choice
+          )
+        end
+      end
     end
 end
