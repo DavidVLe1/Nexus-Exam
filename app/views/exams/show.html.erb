@@ -4,7 +4,7 @@
 
 <div>
   <!--<%= link_to "Edit this exam", edit_exam_path(@exam) %>--> 
-  <%= button_to 'Start Practice Exam', start_practice_exam_path(@exam), method: :post %> |
+  <%= button_to 'Start Practice Exam', start_practice_exam_path(id: @exam.id), method: :post %> |
   <%= link_to "Back to exams", exams_path %>
 
   <!--<%= button_to "Destroy this exam", @exam, method: :delete %>-->

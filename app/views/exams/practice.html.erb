@@ -1,4 +1,16 @@
-<%= form_with url: submit_practice_exam_path(@practice_exam), method: :post do |form| %>
-  <!-- Render questions and choices here -->
-  <%= form.submit 'Submit Exam' %>
+
+<h1>Taking your exam now</h1>
+
+<%= render 'shared/errors', object: @practice_exam %> <!-- Render any validation errors if needed -->
+
+<%= form_for @practice_exam, url: submit_practice_practice_exam_path(@practice_exam), method: :post do |f| %>
+<% @practice_exam.assembled_exam_questions.uniq { |aeq| aeq.question.prompt }.each do |assembled_exam_question| %>
+  <h3><%= assembled_exam_question.question.prompt %></h3>
+    <% assembled_exam_question.question.question_choices.each do |question_choice| %>
+      <%= radio_button_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.id %>
+      <%= label_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.response %><br>
+    <% end %>
+  <% end %>
+  
+  <%= f.submit "Submit Exam" %>
 <% end %>

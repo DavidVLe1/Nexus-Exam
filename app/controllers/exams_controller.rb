@@ -5,7 +5,11 @@ class ExamsController < ApplicationController
   def index
     @exams = Exam.all
   end
-
+  
+  def practice
+    # You can add any necessary logic here
+    @practice_exam = PracticeExam.find(params[:id])
+  end
   # GET /exams/1 or /exams/1.json
   def show
   end
@@ -29,21 +33,11 @@ class ExamsController < ApplicationController
       start_time: Time.now
     )
     assemble_exam_questions(@practice_exam)
-    redirect_to exam_path(@exam)
+    # Redirect the user to the page where you render the practice exam form
+    redirect_to practice_path(@practice_exam)
   end
-  
-  #POST that updates that initial practice exam.
-  def submit_practice
-    @practice_exam = PracticeExam.find(params[:id])
-    # Handle submission logic to calculate score
 
-    # Update practice exam with score and end time
-    @practice_exam.update(
-      score: 10, #calculate_score(params[:answers]), # Need to Implement this method to calculate the score
-      end_time: Time.now
-    )
-    redirect_to exams_path
-  end
+
 
 
   # POST /exams or /exams.json

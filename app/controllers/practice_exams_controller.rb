@@ -19,6 +19,19 @@ class PracticeExamsController < ApplicationController
   def edit
   end
 
+  #POST that updates that initial practice exam.
+  def submit_practice
+    @practice_exam = PracticeExam.find(params[:id])
+    # Handle submission logic to calculate score
+
+    # Update practice exam with score and end time
+    @practice_exam.update(
+      score: 10, #calculate_score(params[:answers]), # Need to Implement this method to calculate the score
+      end_time: Time.now,
+    )
+    redirect_to practice_exam_path(@practice_exam), notice: 'Practice exam submitted successfully.'
+  end
+
   # POST /practice_exams or /practice_exams.json
   def create
     @practice_exam = PracticeExam.new(practice_exam_params)
@@ -58,13 +71,14 @@ class PracticeExamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_practice_exam
-      @practice_exam = PracticeExam.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def practice_exam_params
-      params.require(:practice_exam).permit(:exam_id, :user_id, :custom_max_num_questions, :custom_max_duration, :start_time, :end_time, :score)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_practice_exam
+    @practice_exam = PracticeExam.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def practice_exam_params
+    params.require(:practice_exam).permit(:exam_id, :user_id, :custom_max_num_questions, :custom_max_duration, :start_time, :end_time, :score)
+  end
 end
