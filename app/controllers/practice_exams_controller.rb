@@ -8,6 +8,8 @@ class PracticeExamsController < ApplicationController
 
   # GET /practice_exams/1 or /practice_exams/1.json
   def show
+    #Eager loading to reduce amount of database queries.
+    @practice_exam = PracticeExam.includes(assembled_exam_questions: :question).find(params[:id])
   end
 
   # GET /practice_exams/new
@@ -22,14 +24,16 @@ class PracticeExamsController < ApplicationController
   #POST that updates that initial practice exam.
   def submit_practice
     @practice_exam = PracticeExam.find(params[:id])
-    # Handle submission logic to calculate score
 
-    # Update practice exam with score and end time
+    ## user answers are submitted as array of choice IDs in the params
+    user_answers = params[:assembled_exam_questions]
+    score = calculate_score(user_answers, @practice_exam)
+
     @practice_exam.update(
-      score: 10, #calculate_score(params[:answers]), # Need to Implement this method to calculate the score
+      score: score,
       end_time: Time.now,
     )
-    redirect_to practice_exam_path(@practice_exam), notice: 'Practice exam submitted successfully.'
+    redirect_to practice_exam_path(@practice_exam), notice: "Practice exam submitted successfully."
   end
 
   # POST /practice_exams or /practice_exams.json
@@ -80,5 +84,22 @@ class PracticeExamsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def practice_exam_params
     params.require(:practice_exam).permit(:exam_id, :user_id, :custom_max_num_questions, :custom_max_duration, :start_time, :end_time, :score)
+  end
+
+  # Calculates the user's score on the practice exam.
+  def calculate_score(user_answers, practice_exam)
+    total_questions = practice_exam.assembled_exam_questions.count
+    correct_answers = 0
+
+    practice_exam.assembled_exam_questions.each do |assembled_exam_question|
+      # get user's choice ID from params
+      user_choice_id = user_answers[assembled_exam_question.id.to_s]
+      # get correct choice ID for the question
+      correct_choice_id = assembled_exam_question.question.question_choices.find_by(is_correct: true)&.id
+      # Check if user choice matches correct choice
+      correct_answers += 1 if user_choice_id.to_i == correct_choice_id
+    end
+    #get score
+    score = (correct_answers / total_questions.to_f) * 100
   end
 end
