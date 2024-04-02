@@ -1,0 +1,67 @@
+﻿prompt,correct_answer,incorrect_choice_1,incorrect_choice_2,incorrect_choice_3,name
+What is the primary purpose of AWS Identity and Access Management (IAM)?,To enable you to securely manage access to AWS services and resources.,To provide cloud-based identity management.,To manage virtual private networks (VPNs).,To automate deployment of AWS resources.,AWS Cloud Practitioner
+What is the minimum billable duration for an Amazon EC2 instance that is launched and terminated within a single minute?,One minute,Five minutes,Ten minutes,Thirty seconds,AWS Cloud Practitioner
+Which AWS service is used to deploy and manage Docker containers?,Amazon Elastic Container Service (Amazon ECS),Amazon Simple Storage Service (Amazon S3),Amazon Elastic File System (Amazon EFS),Amazon Simple Queue Service (Amazon SQS),AWS Cloud Practitioner
+What is the maximum size for a single object that can be uploaded to Amazon S3?,5 terabytes,1 gigabyte,10 gigabytes,50 megabytes,AWS Cloud Practitioner
+What type of database service does Amazon RDS provide?,Managed relational database service,Managed NoSQL database service,Managed data warehousing service,Managed in-memory caching service,AWS Cloud Practitioner
+What AWS service allows you to deploy serverless functions?,AWS Lambda,Amazon EC2,Amazon RDS,Amazon S3,AWS Cloud Practitioner
+What is the AWS Shared Responsibility Model?,Division of security responsibilities,Division of administrative responsibilities,Division of network responsibilities,Division of financial responsibilities,AWS Cloud Practitioner
+What is the purpose of Amazon CloudFront?,Deliver content with low latency,Host static websites,Manage cloud storage,Deploy virtual private networks (VPNs),AWS Cloud Practitioner
+Which AWS service is used to monitor and collect logs from various AWS resources?,Amazon CloudWatch,AWS CloudTrail,AWS X-Ray,Amazon SNS,AWS Cloud Practitioner
+What is the purpose of AWS Lambda?,Run code without provisioning servers,Deploy and manage containers,Store and retrieve data,Host websites,AWS Cloud Practitioner
+What is the purpose of Amazon S3?,Provide object storage,Host databases,Deploy applications,Manage network traffic,AWS Cloud Practitioner
+Which AWS service is used to distribute incoming traffic across multiple targets?,Amazon Elastic Load Balancing (ELB),Amazon Route 53,Amazon API Gateway,Amazon VPC,AWS Cloud Practitioner
+What is the default region for an AWS account?,US East (N. Virginia),US West (Oregon),Asia Pacific (Tokyo),EU (Ireland),AWS Cloud Practitioner
+What is the maximum size for a single file system that Amazon EFS supports?,8 exabytes,5 petabytes,10 zettabytes,2 yottabytes,AWS Cloud Practitioner
+What type of storage does Amazon S3 provide?,Object storage,Block storage,File storage,Database storage,AWS Cloud Practitioner
+What is AWS Elastic Beanstalk?,Service for deploying and managing applications,Service for deploying and managing databases,Service for deploying and managing networks,Service for deploying and managing containers,AWS Cloud Practitioner
+What is the purpose of AWS Glacier?,Long-term backup and archiving,Real-time data processing,High-performance computing,Data synchronization,AWS Cloud Practitioner
+Which AWS service is used to create and manage virtual networks?,Amazon Virtual Private Cloud (VPC),Amazon Route 53,AWS Direct Connect,AWS Transit Gateway,AWS Cloud Practitioner
+What does AWS Lambda allow you to run?,Code in response to triggers,Containers,Virtual machines,Databases,AWS Cloud Practitioner
+What is the purpose of AWS CloudFormation?,Provision and manage AWS infrastructure as code,Deploy and manage serverless applications,Monitor and analyze AWS resources,Secure access to AWS services,AWS Cloud Practitioner
+What is the maximum duration for an AWS Lambda function?,15 minutes,30 minutes,1 hour,24 hours,AWS Cloud Practitioner
+What is AWS CloudTrail used for?,Log API calls and track usage,Monitor performance,Analyze network traffic,Manage security policies,AWS Cloud Practitioner
+What is the purpose of AWS Direct Connect?,Establish a dedicated network connection to AWS,Manage cloud resources,Monitor network traffic,Optimize server performance,AWS Cloud Practitioner
+What is an AWS Availability Zone?,A data center or cluster of data centers within a region,A network interface within AWS,An access control list (ACL),A virtual private network (VPN),AWS Cloud Practitioner
+What is the AWS Free Tier?,Limited access to AWS services at no charge,Access to premium AWS services,Unlimited access to AWS services,Access to AWS certification exams,AWS Cloud Practitioner
+What is the purpose of Amazon EC2 Auto Scaling?,Automatically adjust the number of EC2 instances based on demand,Manually adjust the number of EC2 instances,Automatically allocate storage resources,Automatically manage security policies,AWS Cloud Practitioner
+Which AWS service provides a fully managed blockchain ledger database?,Amazon Quantum Ledger Database (Amazon QLDB),Amazon DynamoDB,Amazon Neptune,Amazon Redshift,AWS Cloud Practitioner
+What is AWS Snowball used for?,Transferring large amounts of data,Hosting websites,Processing data,Managing databases,AWS Cloud Practitioner
+Which AWS service allows you to query your data using SQL?,Amazon Athena,Amazon Kinesis,Amazon Redshift,Amazon QuickSight,AWS Cloud Practitioner
+What is the purpose of AWS Elastic Load Balancing?,Automatically distribute incoming application traffic across multiple targets,Monitor network performance,Optimize database queries,Manage security policies,AWS Cloud Practitioner
+Which AWS service provides a fully managed NoSQL database?,Amazon DynamoDB,Amazon Aurora,Amazon RDS,Amazon DocumentDB,AWS Cloud Practitioner
+What is the primary purpose of Amazon RDS Multi-AZ deployments?,Enhance availability and durability,Improve performance,Reduce latency,Simplify management,AWS Cloud Practitioner
+What is the maximum duration for an Amazon RDS snapshot retention period?,35 days,14 days,60 days,90 days,AWS Cloud Practitioner
+What is the AWS Marketplace?,"Digital catalog for finding, buying, and deploying software and services",Online community for AWS users,Learning platform for AWS certifications,Forum for AWS developers,AWS Cloud Practitioner
+What is AWS Snowball Edge used for?,Transferring large amounts of data offline,Real-time data processing,Hosting websites,Processing data,AWS Cloud Practitioner
+Which AWS service is used to deploy and manage containerized applications?,Amazon Elastic Container Service (Amazon ECS),Amazon ECR,Amazon EKS,Amazon Lightsail,AWS Cloud Practitioner
+What is AWS CodePipeline used for?,Continuous integration and continuous delivery (CI/CD),Cloud development,Data analytics,Security and compliance,AWS Cloud Practitioner
+What is Amazon CloudWatch used for?,Monitor and manage AWS resources,Store and analyze log files,Host web applications,Manage security policies,AWS Cloud Practitioner
+What is the AWS Management Console?,Web-based interface for accessing and managing AWS services,Command-line interface (CLI),Application programming interface (API),Software development kit (SDK),AWS Cloud Practitioner
+What is the purpose of Amazon Route 53?,Domain Name System (DNS) web service,Content delivery network (CDN),Virtual private network (VPN),Database management system (DBMS),AWS Cloud Practitioner
+Which AWS service is used to create and manage serverless APIs?,Amazon API Gateway,Amazon CloudFront,AWS AppSync,Amazon Pinpoint,AWS Cloud Practitioner
+What is AWS Organizations?,Service for managing multiple AWS accounts and resources,Service for automating business processes,Service for managing employee benefits,Service for creating virtual environments,AWS Cloud Practitioner
+What is the difference between Amazon RDS and Amazon Redshift?,"RDS is a managed relational database service, while Redshift is a fully managed data warehouse service","RDS is a fully managed data warehouse service, while Redshift is a managed relational database service","RDS is a distributed file storage service, while Redshift is a key-value database service","RDS is a NoSQL database service, while Redshift is a graph database service",AWS Cloud Practitioner
+What is AWS Glue used for?,"ETL (extract, transform, load) service",Real-time data processing,Database management,Network monitoring,AWS Cloud Practitioner
+What is Amazon Aurora?,Fully managed relational database service,Fully managed NoSQL database service,Fully managed data warehousing service,Fully managed in-memory caching service,AWS Cloud Practitioner
+What is AWS CloudHSM?,Hardware security module (HSM) service,High-speed memory caching service,Hypervisor security module (HSM) service,High-availability storage module (HSM) service,AWS Cloud Practitioner
+What is the purpose of AWS Storage Gateway?,Connect on-premises software applications to cloud storage,Connect cloud-based applications to on-premises storage,Securely manage encryption keys,Optimize data storage,AWS Cloud Practitioner
+What is AWS AppSync?,Managed service for building data-driven apps,Service for hosting static websites,Platform for running containerized apps,Tool for analyzing big data,AWS Cloud Practitioner
+What is Amazon ECS Fargate?,Serverless compute engine for containers,Managed container orchestration service,Fully managed Kubernetes service,Platform for building and deploying APIs,AWS Cloud Practitioner
+What is the AWS Command Line Interface (CLI)?,Tool for interacting with AWS services through the command line,Web-based interface for accessing AWS services,Platform for deploying serverless applications,Tool for managing virtual networks,AWS Cloud Practitioner
+What is AWS KMS?,Key management service,Key monitoring service,Key mirroring service,Key modeling service,AWS Cloud Practitioner
+What is Amazon SNS?,Fully managed pub/sub messaging service,Fully managed file storage service,Fully managed database service,Fully managed data warehousing service,AWS Cloud Practitioner
+What is AWS Step Functions?,Serverless orchestration service,Distributed computing service,Data synchronization service,Data analysis service,AWS Cloud Practitioner
+What is Amazon EMR used for?,Big data processing and analytics,Real-time data processing,Machine learning training,Data storage,AWS Cloud Practitioner
+What is the AWS Well-Architected Framework?,"Set of best practices for designing and operating reliable, secure, efficient, and cost-effective systems in the cloud.",Set of tools for automating cloud deployments,Set of guidelines for optimizing cloud costs,Set of standards for securing cloud infrastructure,AWS Cloud Practitioner
+What is AWS Shield?,Managed Distributed Denial of Service (DDoS) protection service,Managed security information and event management (SIEM) service,Managed intrusion detection and prevention (IDPS) service,Managed security and compliance service,AWS Cloud Practitioner
+What is Amazon Lightsail?,Simplified virtual private server (VPS) solution,Fully managed container service,Scalable cloud computing platform,Integrated development environment (IDE),AWS Cloud Practitioner
+What is AWS X-Ray?,Service for analyzing and debugging distributed applications,Service for automating testing,Service for managing infrastructure,Service for monitoring network traffic,AWS Cloud Practitioner
+What is AWS Cloud9?,Cloud-based integrated development environment (IDE),Cloud-based version control service,Cloud-based build and deployment service,Cloud-based configuration management service,AWS Cloud Practitioner
+What is Amazon Cognito?,"Service for authentication, authorization, and user management for web and mobile apps",Service for secure communication between microservices,Service for container orchestration,Service for managing cloud resources,AWS Cloud Practitioner
+What is AWS Organizations?,Service for managing multiple AWS accounts and resources,Service for automating business processes,Service for managing employee benefits,Service for creating virtual environments,AWS Cloud Practitioner
+What is AWS Batch used for?,Running batch computing workloads on AWS,Hosting websites,Managing databases,Analyzing big data,AWS Cloud Practitioner
+What is AWS OpsWorks?,Configuration management service,Real-time monitoring service,Log management service,Security and compliance service,AWS Cloud Practitioner
+What is Amazon Elasticsearch Service used for?,"Managed service for deploying, operating, and scaling Elasticsearch clusters","Managed service for deploying, operating, and scaling Apache Kafka clusters","Managed service for deploying, operating, and scaling Apache Hadoop clusters","Managed service for deploying, operating, and scaling MongoDB clusters",AWS Cloud Practitioner
+What is AWS Cost Explorer?,"Tool for visualizing, understanding, and managing AWS costs and usage",Tool for automating cloud deployments,Tool for monitoring network performance,Tool for managing security policies,AWS Cloud Practitioner
+,,,,,
