@@ -88,7 +88,8 @@ class PracticeExamsController < ApplicationController
 
   # Calculates the user's score on the practice exam.
   def calculate_score(user_answers, practice_exam)
-    total_questions = practice_exam.assembled_exam_questions.count
+    total_questions = practice_exam.assembled_exam_questions.pluck(:question_id).uniq.count
+    puts total_questions
     correct_answers = 0
 
     practice_exam.assembled_exam_questions.each do |assembled_exam_question|
