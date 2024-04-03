@@ -107,15 +107,11 @@ class ExamsController < ApplicationController
   def select_choices(question)
     choices = question.question_choices.to_a
     correct_choice = choices.find(&:is_correct)
-    choices.delete(correct_choice)
 
-    # Select all other choices related to the question
-    other_choices = choices.select { |choice| choice.question_id == question.id }
+    incorrect_choices = choices.reject { |choice| choice.is_correct }
 
-    # Shuffle the other choices and take up to three
-    shuffled_choices = other_choices.shuffle.take(3)
-
-    return [correct_choice] + other_choices
+    selected_choices = [correct_choice] + incorrect_choices.take(3)
+    return selected_choices
   end
 
   # Creates assembled exam questions in the database
