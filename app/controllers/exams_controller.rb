@@ -13,7 +13,6 @@ class ExamsController < ApplicationController
       redirect_to root_path, alert: "You are not authorized to view this practice exam."
       return
     end
-
   end
 
   # GET /exams/1 or /exams/1.json
@@ -33,7 +32,11 @@ class ExamsController < ApplicationController
   def start_practice
     @exam = Exam.find(params[:id])
     quiz_length = params[:exam][:max_num_questions].to_i
-    max_duration = params[:exam][:max_duration].to_i
+    if quiz_length == 10
+      max_duration = 15
+    else
+      max_duration = 90
+    end
 
     @practice_exam = PracticeExam.create(
       exam: @exam,
