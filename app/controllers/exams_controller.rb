@@ -7,8 +7,13 @@ class ExamsController < ApplicationController
   end
 
   def practice
-    # You can add any necessary logic here
     @practice_exam = PracticeExam.find(params[:id])
+    # Check if the current user owns this practice exam
+    unless current_user == @practice_exam.user
+      redirect_to root_path, alert: "You are not authorized to view this practice exam."
+      return
+    end
+
   end
 
   # GET /exams/1 or /exams/1.json
