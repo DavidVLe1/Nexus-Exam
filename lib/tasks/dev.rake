@@ -14,11 +14,9 @@ task sample_data: :environment do
   User.delete_all
   p "Creating sample data"
 
-  #Access the CSV.
   csv_file_path = Rails.root.join("db", "data", "nexus_exam_data.csv")
   csv_data = CSV.read(csv_file_path, headers: true)
 
-  # Generated Users
   people = Array.new(3) do
     {
       first_name: Faker::Name.first_name,
@@ -47,35 +45,30 @@ task sample_data: :environment do
   )
 
   # Generated Questions.
-
   questions = []
-  correct_answers=[]
-  
+  correct_answers = []
+
   csv_data.each do |row|
-    correct_answer = row['correct_answer']
-    csv_question = row['prompt']
-    # Skip empty questions or missing correct answers
+    correct_answer = row["correct_answer"]
+    csv_question = row["prompt"]
+
     next if correct_answer.blank?
-  
+
     # Find or create the question based on the prompt
     question = Question.find_or_create_by(prompt: csv_question, exam: aws_exam)
-  
+
     correct_answers << correct_answer
-  
-    # Create correct choice for the question
+
     correct_choice = QuestionChoice.create(question: question, response: correct_answer, is_correct: true)
-  
-    # Create incorrect choices for the question
-    incorrect_choices = [row['incorrect_choice_1'], row['incorrect_choice_2'], row['incorrect_choice_3']]
-  
+    incorrect_choices = [row["incorrect_choice_1"], row["incorrect_choice_2"], row["incorrect_choice_3"]]
+
     incorrect_choices.each do |incorrect_choice|
       QuestionChoice.create(question: question, response: incorrect_choice, is_correct: false)
     end
   end
-  
-  # Select a random user from the generated users array
+
   selected_user = User.all.sample
-  # Create a new instance of PracticeExam
+
   practice_exam = PracticeExam.create(
     exam: aws_exam,
     user: selected_user,
@@ -84,24 +77,18 @@ task sample_data: :environment do
     start_time: Time.now,
   )
 
-  # Select a subset of questions and their corresponding choices for this practice exam
   selected_questions = Question.all.sample(10)
 
   # Create associated AssembledExamQuestions for this practice exam
   selected_questions.each do |question|
-    # Fetch all choices associated with the current question
     choices = question.question_choices.to_a
 
-    # Fetch the correct choice for the current question
     correct_choice = choices.find(&:is_correct)
 
-    # Filter out incorrect choices for the current question
-  incorrect_choices = choices.reject { |choice| choice.is_correct }
+    incorrect_choices = choices.reject { |choice| choice.is_correct }
 
-    # Take one correct choice and three incorrect choices
-  selected_choices = [correct_choice] + incorrect_choices.take(3)
+    selected_choices = [correct_choice] + incorrect_choices.take(3)
 
-    # Create an AssembledExamQuestion for each selected choice
     selected_choices.shuffle!.each do |choice|
       AssembledExamQuestion.create(
         practice_exam: practice_exam,
