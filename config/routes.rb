@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/practice/:id', to: 'exams#practice', as: 'practice'
   post '/exam_submission', to: 'practice_exams#submit_practice', as: 'exam_submission'
-  resources :assembled_exam_questions
+
   resources :practice_exams, except: [ :destroy] do
     member do
       post 'start_practice'
@@ -9,13 +9,14 @@ Rails.application.routes.draw do
     end
   end
 
-  # Restricting these routes by commenting.
+  # Restricted for version 1 of mvp.
+  #resources :assembled_exam_questions
   #resources :question_choices 
   #resources :questions
   
   get 'landing/index'
   root "landing#index"
-  resources :exams do
+  resources :exams, except: [ :destroy] do
     post 'start_practice', on: :member
   end
   devise_for :users

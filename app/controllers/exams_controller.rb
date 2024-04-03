@@ -32,11 +32,14 @@ class ExamsController < ApplicationController
   # POST that creates initial practice exam.
   def start_practice
     @exam = Exam.find(params[:id])
+    quiz_length = params[:exam][:max_num_questions].to_i
+    max_duration = params[:exam][:max_duration].to_i
+
     @practice_exam = PracticeExam.create(
       exam: @exam,
       user: current_user,
-      custom_max_num_questions: 10,
-      custom_max_duration: 10,
+      custom_max_num_questions: quiz_length,
+      custom_max_duration: max_duration,
       start_time: Time.now,
     )
     assemble_exam_questions(@practice_exam)
@@ -96,7 +99,8 @@ class ExamsController < ApplicationController
 
   #Creates assembled exam questions
   def assemble_exam_questions(practice_exam)
-    selected_questions = select_random_questions(10)
+    quiz_length = practice_exam.custom_max_num_questions
+    selected_questions = select_random_questions(quiz_length)
     selected_questions.each do |question|
       selected_choices = select_choices(question)
       create_assembled_exam_questions(practice_exam, question, selected_choices)

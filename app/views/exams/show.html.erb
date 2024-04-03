@@ -1,11 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
+<h1>Exam Details</h1>
 <%= render @exam %>
 
 <div>
-  <!--<%= link_to "Edit this exam", edit_exam_path(@exam) %>--> 
-  <%= button_to 'Start Practice Exam', start_practice_exam_path(id: @exam.id), method: :post %> |
-  <%= link_to "Back to exams", exams_path %>
+  <!--<%= button_to 'Start Practice Exam', start_practice_exam_path(id: @exam.id), method: :post %> |-->
+  <!--<%= link_to "Back to exams", exams_path %>-->
+  <%= form_for @exam, url: start_practice_exam_path(id: @exam.id), method: :post do |f| %>
+    <p>Select quiz length:</p>
+    <%= f.radio_button :max_num_questions, 10 %>
+    <%= f.label :max_num_questions, "Short (10 questions)" %>
+    <br>
+    <%= f.radio_button :max_num_questions, 60 %>
+    <%= f.label :max_num_questions, "Long (60 questions)" %>
+    <br>
+    <br>
+    <% if @exam.max_num_questions == 10 %>
+      <%= f.hidden_field :max_duration, value: 15 %>
+    <% else %>
+      <%= f.hidden_field :max_duration, value: 90 %>
+    <% end %>
 
-  <!--<%= button_to "Destroy this exam", @exam, method: :delete %>-->
+    <%= f.submit "Start Practice Exam" %>
+  <% end %>
+
+  <div>
+    <%= link_to "Back to exams", exams_path %>
+  </div>
 </div>
