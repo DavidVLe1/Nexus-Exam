@@ -49,49 +49,30 @@ task sample_data: :environment do
   # Generated Questions.
 
   questions = []
-  # Create questions in the database
-  csv_questions = []
   correct_answers=[]
-  # Create questions in the database
+  
   csv_data.each do |row|
-    correct_answer = row["correct_answer"]
-    csv_question = row["prompt"] # This line fetches the data from the 'prompt' column
+    correct_answer = row['correct_answer']
+    csv_question = row['prompt']
     # Skip empty questions or missing correct answers
-    next if csv_question.blank? || correct_answer.blank?
-
+    next if correct_answer.blank?
+  
+    # Find or create the question based on the prompt
+    question = Question.find_or_create_by(prompt: csv_question, exam: aws_exam)
+  
     correct_answers << correct_answer
-    csv_questions << csv_question  # Uncomment this line to store the questions
-  end
-  puts csv_questions.count
-  puts correct_answers.count
-  # Create questions in the database
-  csv_questions.zip(correct_answers).each do |q, correct_answer|
-    a_question = Question.create(
-      exam: aws_exam,
-      prompt: q,
-    )
-
-    # Create question choices in the database.
-    QuestionChoice.create(
-      question: a_question,
-      response: correct_answer,
-      is_correct: true,
-    )
-    ## Create three incorrect choices
-    incorrect_choices = correct_answers.reject { |choice| choice == correct_answer }
-    3.times do
-      incorrect_choice = incorrect_choices.sample
-      QuestionChoice.create(
-        question: a_question,
-        response: incorrect_choice,
-        is_correct: false,
-      )
-      # Remove the selected incorrect choice from the array to ensure it's not selected again
-      incorrect_choices.delete(incorrect_choice)
+  
+    # Create correct choice for the question
+    correct_choice = QuestionChoice.create(question: question, response: correct_answer, is_correct: true)
+  
+    # Create incorrect choices for the question
+    incorrect_choices = [row['incorrect_choice_1'], row['incorrect_choice_2'], row['incorrect_choice_3']]
+  
+    incorrect_choices.each do |incorrect_choice|
+      QuestionChoice.create(question: question, response: incorrect_choice, is_correct: false)
     end
   end
-  ########
-
+  
   # Select a random user from the generated users array
   selected_user = User.all.sample
   # Create a new instance of PracticeExam
@@ -114,17 +95,14 @@ task sample_data: :environment do
     # Fetch the correct choice for the current question
     correct_choice = choices.find(&:is_correct)
 
-    # Remove the correct choice from the array
-    choices.delete(correct_choice)
+    # Filter out incorrect choices for the current question
+  incorrect_choices = choices.reject { |choice| choice.is_correct }
 
-    # Shuffle the remaining choices to randomize the order
-    choices.shuffle!
-
-    # Take the correct choice and three false choices
-    selected_choices = [correct_choice] + choices.take(3)
+    # Take one correct choice and three incorrect choices
+  selected_choices = [correct_choice] + incorrect_choices.take(3)
 
     # Create an AssembledExamQuestion for each selected choice
-    selected_choices.each do |choice|
+    selected_choices.shuffle!.each do |choice|
       AssembledExamQuestion.create(
         practice_exam: practice_exam,
         question: question,
