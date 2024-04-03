@@ -6,6 +6,11 @@ class ExamsController < ApplicationController
     @exams = Exam.all
   end
 
+  def practice
+    # You can add any necessary logic here
+    @practice_exam = PracticeExam.find(params[:id])
+  end
+
   # GET /exams/1 or /exams/1.json
   def show
   end
@@ -17,6 +22,21 @@ class ExamsController < ApplicationController
 
   # GET /exams/1/edit
   def edit
+  end
+
+  # POST that creates initial practice exam.
+  def start_practice
+    @exam = Exam.find(params[:id])
+    @practice_exam = PracticeExam.create(
+      exam: @exam,
+      user: current_user,
+      custom_max_num_questions: 10,
+      custom_max_duration: 10,
+      start_time: Time.now,
+    )
+    assemble_exam_questions(@practice_exam)
+    # Redirect the user to the page where you render the practice exam form
+    redirect_to practice_path(@practice_exam)
   end
 
   # POST /exams or /exams.json
@@ -58,13 +78,50 @@ class ExamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exam
-      @exam = Exam.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def exam_params
-      params.require(:exam).permit(:name, :max_num_questions, :max_duration)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_exam
+    @exam = Exam.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def exam_params
+    params.require(:exam).permit(:name, :max_num_questions, :max_duration)
+  end
+
+  #Creates assembled exam questions
+  def assemble_exam_questions(practice_exam)
+    selected_questions = select_random_questions(10)
+    selected_questions.each do |question|
+      selected_choices = select_choices(question)
+      create_assembled_exam_questions(practice_exam, question, selected_choices)
     end
+  end
+
+  # Selects random questions from the database
+  def select_random_questions(num_questions)
+    return Question.all.sample(num_questions)
+  end
+
+  # Selects choices for a given question
+  def select_choices(question)
+    choices = question.question_choices.to_a
+    correct_choice = choices.find(&:is_correct)
+
+    incorrect_choices = choices.reject { |choice| choice.is_correct }
+
+    selected_choices = [correct_choice] + incorrect_choices.take(3)
+    return selected_choices
+  end
+
+  # Creates assembled exam questions in the database
+  def create_assembled_exam_questions(practice_exam, question, selected_choices)
+    selected_choices.each do |choice|
+      AssembledExamQuestion.create(
+        practice_exam: practice_exam,
+        question: question,
+        question_choice: choice,
+      )
+    end
+  end
 end
