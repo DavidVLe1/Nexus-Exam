@@ -3,13 +3,18 @@ class PracticeExamsController < ApplicationController
   before_action :authenticate_user!
   # GET /practice_exams or /practice_exams.json
   def index
-    @practice_exams = PracticeExam.all
+    @practice_exams = current_user.practice_exams
   end
 
   # GET /practice_exams/1 or /practice_exams/1.json
   def show
-    #Eager loading to reduce amount of database queries.
-    @practice_exam = PracticeExam.includes(assembled_exam_questions: :question).find(params[:id])
+    @practice_exam = current_user.practice_exams.find_by(id: params[:id])
+    if @practice_exam.nil?
+      redirect_to root_path, alert: "You are not authorized to view this practice exam."
+    else
+      # Eager loading to reduce amount of database queries.
+      @practice_exam = PracticeExam.includes(assembled_exam_questions: :question).find(params[:id])
+    end
   end
 
   # GET /practice_exams/new
