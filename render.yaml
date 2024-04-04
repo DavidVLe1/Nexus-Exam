@@ -1,8 +1,8 @@
 databases:
-  - name: nexusExam
+  - name: nexus_exam
     plan: free
-    databaseName: nexusExam
-    user: nexusExam
+    databaseName: nexus_exam
+    user: nexus_exam
 
 services:
   - type: web
