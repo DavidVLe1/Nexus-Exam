@@ -3,13 +3,18 @@ class PracticeExamsController < ApplicationController
   before_action :authenticate_user!
   # GET /practice_exams or /practice_exams.json
   def index
-    @practice_exams = PracticeExam.all
+    @practice_exams = current_user.practice_exams
   end
 
   # GET /practice_exams/1 or /practice_exams/1.json
   def show
-    #Eager loading to reduce amount of database queries.
-    @practice_exam = PracticeExam.includes(assembled_exam_questions: :question).find(params[:id])
+    @practice_exam = current_user.practice_exams.find_by(id: params[:id])
+    if @practice_exam.nil?
+      redirect_to root_path, alert: "You are not authorized to view this practice exam."
+    else
+      # Eager loading to reduce amount of database queries.
+      @practice_exam = PracticeExam.includes(assembled_exam_questions: :question).find(params[:id])
+    end
   end
 
   # GET /practice_exams/new
@@ -88,19 +93,17 @@ class PracticeExamsController < ApplicationController
 
   # Calculates the user's score on the practice exam.
   def calculate_score(user_answers, practice_exam)
+    return 0 if user_answers.nil? || practice_exam.assembled_exam_questions.empty?
+
     total_questions = practice_exam.assembled_exam_questions.pluck(:question_id).uniq.count
-    puts total_questions
     correct_answers = 0
 
     practice_exam.assembled_exam_questions.each do |assembled_exam_question|
-      # get user's choice ID from params
       user_choice_id = user_answers[assembled_exam_question.id.to_s]
-      # get correct choice ID for the question
       correct_choice_id = assembled_exam_question.question.question_choices.find_by(is_correct: true)&.id
-      # Check if user choice matches correct choice
       correct_answers += 1 if user_choice_id.to_i == correct_choice_id
     end
-    #get score
-    score = (correct_answers / total_questions.to_f) * 100
+
+    return (correct_answers / total_questions.to_f) * 100
   end
 end
