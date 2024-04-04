@@ -1,4 +1,4 @@
-unless Rails.env.production?
+
   require "csv"
   desc "Fill the database tables with some sample data"
   task sample_data: :environment do
@@ -114,4 +114,3 @@ unless Rails.env.production?
     p "There are now #{AssembledExamQuestion.count} possible choices for the selected #{AssembledExamQuestion.select(:question_id).distinct.count} questions for exams."
     p "There are now #{PracticeExam.count} practice exam."
   end
-end
