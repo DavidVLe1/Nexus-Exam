@@ -3,6 +3,10 @@ body {
   /* You can adjust the shade of gray by changing the hex value */
 }
 
+.btn{
+  background-color:lightblue
+
+}
 
 .centered-form {
   width: 400px;
