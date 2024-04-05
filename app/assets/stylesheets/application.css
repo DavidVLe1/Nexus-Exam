@@ -2,3 +2,47 @@ body {
   background-color: lightcyan; /* Dark gray color */
   /* You can adjust the shade of gray by changing the hex value */
 }
+
+
+.centered-form {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.centered-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.form-inputs input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  background-color: #0056b3;
+}
