@@ -107,3 +107,5 @@ group :test do
   gem "rspec-html-matchers"
   gem "webmock"
 end
+
+gem "simple_form", "~> 5.2"
