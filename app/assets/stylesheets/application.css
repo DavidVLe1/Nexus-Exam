@@ -1,5 +1,6 @@
 body {
-  background-color: white !important; /* Dark gray color */
+  background-color: #2b2d42 !important; /* Dark gray color */
+  color: white;
   /* You can adjust the shade of gray by changing the hex value */
 }
 
@@ -26,8 +27,7 @@ body {
 
 /*Button*/
 .btn{
-  background-color:mediumorchid
-
+  background-color:#4e2c70
 }
 
 
@@ -73,4 +73,49 @@ body {
 
 .form-actions button:hover {
   background-color: green;
+}
+
+/*Landing Page*/
+
+ /* Hero section styling */
+ .hero-container {
+  background-color: #26c5f3;
+  color: #ffffff; /* White text color */
+  padding: 80px 0; /* Adjust padding as needed */
+  text-align: center;
+}
+
+/* Features section styling */
+.features-container {
+  background-color: #6d77f6;
+  color: #ffffff; /* White text color */
+  padding: 50px 0; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.feature {
+  margin-bottom: 30px; /* Add margin between features */
+}
+
+/* Footer styling */
+.footer-container {
+  background-color: #2b2d42;
+  color: #ffffff; /* White text color */
+  padding: 30px 0; /* Adjust padding as needed */
+  text-align: center;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #4e2c70; /* Purple button color */
+  color: #ffffff; /* White text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.btn-primary:hover {
+  background-color: #855df7; /* Darker purple on hover */
 }
