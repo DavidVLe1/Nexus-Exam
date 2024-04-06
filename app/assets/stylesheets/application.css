@@ -1,13 +1,37 @@
 body {
-  background-color: lightcyan; /* Dark gray color */
+  background-color: white !important; /* Dark gray color */
   /* You can adjust the shade of gray by changing the hex value */
 }
 
+/*Nav bar*/
+.navbar{
+  background-color: #26C5F3;
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #4E2C70; /* Change the color of the text to white or any other color that contrasts well with the navbar background */
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+   /* Change the color of the text on hover if desired */
+  color: #2B2D42;
+}
+
+.bigger-bold {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+/*Button*/
 .btn{
-  background-color:lightblue
+  background-color:mediumorchid
 
 }
 
+
+/*Button*/
 .centered-form {
   width: 400px;
   margin: 0 auto;
@@ -48,5 +72,5 @@ body {
 }
 
 .form-actions button:hover {
-  background-color: #0056b3;
+  background-color: green;
 }
