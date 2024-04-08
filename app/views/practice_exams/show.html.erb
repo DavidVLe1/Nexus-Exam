@@ -1,3 +1,4 @@
+<h1>Practice Exam Details</h1>
 <p style="color: green"><%= notice %></p>
 <div class="card" style="width: 18rem;">
   <%= render @practice_exam %>
@@ -5,3 +6,22 @@
 <div>
   <%= link_to "Back to practice exams", practice_exams_path %>
 </div>
+
+
+<h2>Questions</h2>
+
+<% @practice_exam.unique_questions.each do |obj| %>
+  <div>
+    <p><strong>Question:</strong> <%= obj.prompt %></p>
+    <ul>
+      <% obj.question_choices.each do |choice| %>
+        <li>
+          <%= choice.response %>
+          <% if choice.is_correct %>
+            <strong>(Correct Answer)</strong>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

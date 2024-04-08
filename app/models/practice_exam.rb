@@ -28,4 +28,8 @@ class PracticeExam < ApplicationRecord
   belongs_to :user
 
   has_many :assembled_exam_questions
+
+  def unique_questions
+    assembled_exam_questions.map(&:question).uniq
+  end
 end
