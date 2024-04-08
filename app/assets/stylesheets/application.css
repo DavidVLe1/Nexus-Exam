@@ -25,13 +25,13 @@ body {
 }
 
 
-/*Button*/
+/*log in/sign up Button*/
 .btn{
   background-color:#4e2c70
 }
 
 
-/*Button*/
+/*Forms*/
 .centered-form {
   width: 400px;
   margin: 0 auto;
@@ -118,4 +118,49 @@ body {
 
 .btn-primary:hover {
   background-color: #855df7; /* Darker purple on hover */
+}
+
+/*Exams*/
+.exam-button {
+  display: inline-block;
+  padding: 5rem 10rem;
+  background-color: #4e2c70; /* Purple button color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 1rem;
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-bottom: 10px; /* Add margin between buttons */
+}
+
+.exam-button:hover {
+  background-color: #855df7; /* Darker purple on hover */
+}
+
+/*Practice exams*/
+.practice-exam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust the minmax value as needed */
+  gap: 20px; /* Adjust the gap between items */
+}
+
+.card {
+  background-color: #855DF7;
+}
+
+.card-footer{
+  background-color: #26C5F3;
+}
+
+.card-footer a {
+  display: block;
+  color: #2B2D42;
+  font-size: 1rem; /* Adjust the font size to your preference */
+  transition: color 0.3s, font-size 0.3s; /* Add transition for color and font size */
+}
+
+.card-footer a:hover {
+  color: white; /* Change text color to white on hover */
+  font-size: 1.3rem; /* Enlarge font size on hover */
 }

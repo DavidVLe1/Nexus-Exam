@@ -2,13 +2,14 @@
 
 <h1>Practice exams</h1>
 
-<div id="practice_exams">
+<div id="practice_exams" class="practice-exam-grid">
   <% @practice_exams.each do |practice_exam| %>
-    <%= render practice_exam %>
-    <p>
-      <%= link_to "Show this practice exam", practice_exam %>
-    </p>
+    <div class="card" style="width: 18rem;">
+      <%= render practice_exam %>
+      <div class="card-footer">
+        <small class="text-muted"><%= link_to "Show this practice exam", practice_exam %></small>
+      </div>
+      
+    </div>
   <% end %>
 </div>
-
-<!--<%= link_to "New practice exam", new_practice_exam_path %>-->
