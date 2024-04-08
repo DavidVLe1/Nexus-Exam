@@ -14,7 +14,6 @@ class PracticeExamsController < ApplicationController
     else
       # Eager loading to reduce amount of database queries.
       @practice_exam = PracticeExam.includes(assembled_exam_questions: :question).find(params[:id])
-      @unique_question_prompts = @practice_exam.assembled_exam_questions.map { |obj| obj.question.prompt }.uniq
     end
   end
 
