@@ -1,21 +1,24 @@
 body {
-  background-color: #2b2d42 !important; /* Dark gray color */
+  background-color: #2b2d42 !important;
+  /* Dark gray color */
   color: white;
   /* You can adjust the shade of gray by changing the hex value */
 }
 
 /*Nav bar*/
-.navbar{
+.navbar {
   background-color: #26C5F3;
 }
+
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: #4E2C70; /* Change the color of the text to white or any other color that contrasts well with the navbar background */
+  color: #4E2C70;
+  /* Change the color of the text to white or any other color that contrasts well with the navbar background */
 }
 
 .navbar-brand:hover,
 .navbar-nav .nav-link:hover {
-   /* Change the color of the text on hover if desired */
+  /* Change the color of the text on hover if desired */
   color: #2B2D42;
 }
 
@@ -26,8 +29,13 @@ body {
 
 
 /*log in/sign up Button*/
-.btn{
-  background-color:#4e2c70
+.btn {
+  width: 100%;
+  background-color: #B429F9;
+}
+.btn:hover {
+  width: 100%;
+  background-color: #855DF7;
 }
 
 
@@ -35,8 +43,8 @@ body {
 .centered-form {
   width: 400px;
   margin: 0 auto;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #702B9E;
+  border: 1px solid #4E2C70;
   padding: 20px;
   border-radius: 5px;
 }
@@ -77,97 +85,122 @@ body {
 
 /*Landing Page*/
 
- /* Hero section styling */
- .hero-container {
+/* Hero section styling */
+.hero-container {
   background-color: #26c5f3;
-  color: #ffffff; /* White text color */
-  padding: 80px 0; /* Adjust padding as needed */
+  color: #ffffff;
+  /* White text color */
+  padding: 80px 0;
+  /* Adjust padding as needed */
   text-align: center;
 }
 
 /* Features section styling */
 .features-container {
   background-color: #6d77f6;
-  color: #ffffff; /* White text color */
-  padding: 50px 0; /* Adjust padding as needed */
+  color: #ffffff;
+  /* White text color */
+  padding: 50px 0;
+  /* Adjust padding as needed */
   text-align: center;
 }
 
 .feature {
-  margin-bottom: 30px; /* Add margin between features */
+  margin-bottom: 30px;
+  /* Add margin between features */
 }
 
 /* Footer styling */
 .footer-container {
   background-color: #2b2d42;
-  color: #ffffff; /* White text color */
-  padding: 30px 0; /* Adjust padding as needed */
+  color: #ffffff;
+  /* White text color */
+  padding: 30px 0;
+  /* Adjust padding as needed */
   text-align: center;
 }
 
 /* Button styling */
 .btn-primary {
-  background-color: #4e2c70; /* Purple button color */
-  color: #ffffff; /* White text color */
-  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: #4e2c70;
+  /* Purple button color */
+  color: #ffffff;
+  /* White text color */
+  padding: 10px 20px;
+  /* Adjust padding as needed */
   border: none;
   border-radius: 5px;
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  text-decoration: none;
+  /* Remove underline */
+  transition: background-color 0.3s ease;
+  /* Smooth transition on hover */
 }
 
 .btn-primary:hover {
-  background-color: #855df7; /* Darker purple on hover */
+  background-color: #855df7;
+  /* Darker purple on hover */
 }
 
 /*Exams*/
 .exam-button {
   display: inline-block;
   padding: 5rem 10rem;
-  background-color: #4e2c70; /* Purple button color */
-  color: #ffffff; /* White text color */
+  background-color: #4e2c70;
+  /* Purple button color */
+  color: #ffffff;
+  /* White text color */
   border: none;
   border-radius: 1rem;
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  margin-bottom: 10px; /* Add margin between buttons */
+  text-decoration: none;
+  /* Remove underline */
+  transition: background-color 0.3s ease;
+  /* Smooth transition on hover */
+  cursor: pointer;
+  /* Change cursor to pointer on hover */
+  margin-bottom: 10px;
+  /* Add margin between buttons */
 }
 
 .exam-button:hover {
-  background-color: #855df7; /* Darker purple on hover */
+  background-color: #855df7;
+  /* Darker purple on hover */
 }
 
 /*Practice exams*/
 .practice-exam-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust the minmax value as needed */
-  gap: 20px; /* Adjust the gap between items */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Adjust the minmax value as needed */
+  gap: 20px;
+  /* Adjust the gap between items */
 }
 
 .card {
   background-color: #855DF7;
 }
 
-.card-footer{
+.card-footer {
   background-color: #26C5F3;
 }
 
 .card-footer a {
   display: block;
   color: #2B2D42;
-  font-size: 1rem; /* Adjust the font size to your preference */
-  transition: color 0.3s, font-size 0.3s; /* Add transition for color and font size */
+  font-size: 1rem;
+  /* Adjust the font size to your preference */
+  transition: color 0.3s, font-size 0.3s;
+  /* Add transition for color and font size */
 }
 
 .card-footer a:hover {
-  color: white; /* Change text color to white on hover */
+  color: white;
+  /* Change text color to white on hover */
 }
 
-.correct-choice{
+.correct-choice {
   color: lightgreen;
 }
 
-.incorrect-choice{
-color: red;
+.incorrect-choice {
+  color: red;
 }
