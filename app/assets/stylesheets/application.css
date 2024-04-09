@@ -204,3 +204,20 @@ body {
 .incorrect-choice {
   color: red;
 }
+/*Charts*/
+.chart-container{
+  background-color: #4E2C70;
+}
+.chart-container svg g.axis-x text {
+  fill: white; /* Change x-axis tick text color to white */
+}
+
+.chart-container svg g.axis-y text {
+  fill: white; /* Change y-axis tick text color to white */
+}
+
+.chart-text .btn{
+  width: 25%;
+  font-size: 1.5rem;
+}
+

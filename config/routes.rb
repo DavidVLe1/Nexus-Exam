@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'charts/index'
   get '/practice/:id', to: 'exams#practice', as: 'practice'
   post '/exam_submission', to: 'practice_exams#submit_practice', as: 'exam_submission'
 
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
       post 'submit_practice'
     end
   end
+
+  get '/charts', to: 'charts#index'
 
   # Restricted for version 1 of mvp.
   #resources :assembled_exam_questions
