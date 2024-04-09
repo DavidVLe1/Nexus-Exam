@@ -8,7 +8,7 @@
   <!--<%= link_to "Back to exams", exams_path %>-->
   <%= form_for @exam, url: start_practice_exam_path(id: @exam.id), method: :post do |f| %>
     <p>Select quiz length:</p>
-    <%= f.radio_button :max_num_questions, 10 %>
+    <%= f.radio_button :max_num_questions, 10,checked: true%>
     <%= f.label :max_num_questions, "Short (10 questions)" %>
     <br>
     <%= f.radio_button :max_num_questions, 60 %>
