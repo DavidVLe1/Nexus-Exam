@@ -4,11 +4,8 @@
 
 <div id="exams">
   <% @exams.each do |exam| %>
-    <%= exam.name %>
     <p>
-      <%= link_to "Show this exam", exam %>
+        <%= link_to exam.name, exam, class: "exam-button" %>
     </p>
   <% end %>
 </div>
-
-<!--<%= link_to "New exam", new_exam_path %>-->

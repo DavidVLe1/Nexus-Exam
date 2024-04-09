@@ -1,10 +1,28 @@
+<h1>Practice Exam Details</h1>
 <p style="color: green"><%= notice %></p>
-
-<%= render @practice_exam %>
-
-<div>
-  <!--<%= link_to "Edit this practice exam", edit_practice_exam_path(@practice_exam) %>--> |
-  <%= link_to "Back to practice exams", practice_exams_path %>
-
-  <!--<%= button_to "Destroy this practice exam", @practice_exam, method: :delete %>-->
+<div class="card" style="width: 18rem;">
+  <%= render @practice_exam %>
+      <div class="card-footer">
+        <small class="text-muted"><%= link_to "Back to practice exams", practice_exams_path %></small>
+      </div>
 </div>
+<br>
+<h2>Questions</h2>
+
+<% @practice_exam.unique_questions.each do |obj| %>
+  <div>
+    <p><strong>Question:</strong> <%= obj.prompt %></p>
+    <ul>
+      <% obj.question_choices.each do |choice| %>
+        <li>
+          <%if choice.is_correct%>
+            <div class="correct-choice"><%= choice.response %><strong>(Correct Answer)</strong></div>
+          <% else %>
+            <div class="incorrect-choice"><%= choice.response %></div>
+          <%end%>
+          
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
