@@ -48,7 +48,7 @@
         </div>
       <%else%>
         <div class="chart-text">
-          <h2>You haven't taken a long exam, take one below!</h2>
+          <h3>You haven't taken a long exam, take one below!</h3>
           <%= link_to "Take an Exam", exams_path, class: "btn btn-primary" %>
         </div>
       <%end%>
@@ -92,14 +92,14 @@
         </div>
       <%else%>
         <div class="chart-text">
-          <h2>You haven't taken a short exam, take one below!</h2>
+          <h3>You haven't taken a short exam, take one below!</h3>
           <%= link_to "Take an Exam", exams_path, class: "btn btn-primary" %>
         </div>
       <%end%>
     </div>
   <% else %>
     <div class="chart-text">
-      <h2>You haven't taken an exam yet.</h2>
+      <h3>You haven't taken an exam yet.</h3>
       <%= link_to "Take one now!", exams_path, class: "btn btn-primary" %>
     </div>
   <% end %>
