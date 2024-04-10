@@ -1,13 +1,21 @@
 <h1>User Practice Exam Scores</h1>
 <br>
-<%longer_practice_exam_data = @longer_practice_exams.map { |exam| [exam[0], exam[2]] }%> 
+<%longer_practice_exam_data = @longer_practice_exams.map { |exam| [exam[0], exam[2]] }%>
 <%shorter_practice_exam_data = @shorter_practice_exams.map { |exam| [exam[0], exam[2]] }%>
 
-<%if longer_practice_exam_data.present?%>
-  <div>
-    <h2>Long Exams</h2>
-    <div class="chart-container">
-      <%= column_chart longer_practice_exam_data,
+<div>
+  <%if @aws_exam.present?%>
+    <div>
+      <div class="chart-exam-name">
+        <h2>
+          AWS Cloud Practitioner Exams
+        </h2>
+      </div>
+      <%if longer_practice_exam_data.present?%>
+        <div>
+          <h3> Long Exams</h3>
+          <div class="chart-container">
+            <%= column_chart longer_practice_exam_data,
       xtitle: "Date Submitted", ytitle: "Score", 
       height: "30rem",
       colors: ["#26C5F3", "#9C43F8", "#6D77F6", "#B429F9"],
@@ -36,21 +44,21 @@
 
         }
       %>
-    </div>
-  </div>
-<%else%>
-  <div class="chart-text">
-    <h2>You haven't taken a long exam, take one below!</h2>
-    <%= link_to "Take an Exam", exams_path, class: "btn btn-primary" %>
-  </div>
-<%end%>
+          </div>
+        </div>
+      <%else%>
+        <div class="chart-text">
+          <h2>You haven't taken a long exam, take one below!</h2>
+          <%= link_to "Take an Exam", exams_path, class: "btn btn-primary" %>
+        </div>
+      <%end%>
 
-<br>
-<%if shorter_practice_exam_data.present?%>
-  <div>
-    <h2>Short Exams</h2>
-    <div class="chart-container">
-      <%= column_chart shorter_practice_exam_data,
+      <br>
+      <%if shorter_practice_exam_data.present?%>
+        <div>
+          <h3>Short Exams</h3>
+          <div class="chart-container">
+            <%= column_chart shorter_practice_exam_data,
       xtitle: "Date Submitted", ytitle: "Score", 
       height: "30rem",
       colors: ["#26C5F3", "#9C43F8", "#6D77F6", "#B429F9"],
@@ -80,11 +88,19 @@
 
         }
       %>
+          </div>
+        </div>
+      <%else%>
+        <div class="chart-text">
+          <h2>You haven't taken a short exam, take one below!</h2>
+          <%= link_to "Take an Exam", exams_path, class: "btn btn-primary" %>
+        </div>
+      <%end%>
     </div>
-  </div>
-<%else%>
-  <div class="chart-text">
-    <h2>You haven't taken a short exam, take one below!</h2>
-    <%= link_to "Take an Exam", exams_path, class: "btn btn-primary" %>
-  </div>
-<%end%>
+  <% else %>
+    <div class="chart-text">
+      <h2>You haven't taken an exam yet.</h2>
+      <%= link_to "Take one now!", exams_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

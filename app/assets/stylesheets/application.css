@@ -205,6 +205,9 @@ body {
   color: red;
 }
 /*Charts*/
+.chart-exam-name{
+  text-align: center;
+}
 .chart-container{
   background-color: #4E2C70;
 }
@@ -220,4 +223,3 @@ body {
   width: 25%;
   font-size: 1.5rem;
 }
-

@@ -1,14 +1,30 @@
 class ChartsController < ApplicationController
   def index
-    @chart_data = current_user.practice_exams.pluck(:end_time,:custom_max_num_questions, :score)
-    @chart_data = @chart_data.reject { |data_point| data_point[2].nil? } # Filter out nil values
+    aws_exam_name = "AWS Cloud Practitioner"
+    @aws_exam = Exam.find_by(name: aws_exam_name)
 
-    # Format datetime values to strings
-    @chart_data.map! do |data_point|
-      [data_point[0].strftime("%Y-%m-%d %I:%M:%S %p"), data_point[1], data_point[2]]
+    if @aws_exam
+      @chart_data = filter_chart_data(current_user.practice_exams.where(exam_id: @aws_exam.id))
+      @longer_practice_exams, @shorter_practice_exams = split_chart_data(@chart_data)
+    else
+      flash[:alert] = "AWS Cloud Practitioner exam not found"
+      redirect_to root_path
     end
-    
-    @longer_practice_exams = @chart_data.select { |exam| exam[1] > 30 }
-    @shorter_practice_exams = @chart_data.select { |exam| exam[1] <= 30 }
+  end
+
+  private
+
+  def filter_chart_data(data)
+    data.pluck(:end_time, :custom_max_num_questions, :score, :exam_name)
+        .reject { |data_point| data_point[2].nil? }
+        .map { |data_point| format_data_point(data_point) }
+  end
+
+  def format_data_point(data_point)
+    [data_point[0].strftime("%Y-%m-%d %I:%M:%S %p"), data_point[1], data_point[2]]
+  end
+
+  def split_chart_data(data)
+    data.partition { |exam| exam[1] > 30 }
   end
 end
