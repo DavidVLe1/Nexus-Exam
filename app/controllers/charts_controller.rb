@@ -15,7 +15,7 @@ class ChartsController < ApplicationController
   private
 
   def filter_chart_data(data)
-    data.pluck(:end_time, :custom_max_num_questions, :score, :exam_name)
+    data.pluck(:end_time, :custom_max_num_questions, :score)
         .reject { |data_point| data_point[2].nil? }
         .map { |data_point| format_data_point(data_point) }
   end
