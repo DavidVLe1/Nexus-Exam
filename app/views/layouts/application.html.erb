@@ -9,8 +9,10 @@
     <%= render partial: "shared/cdn_assets" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dgd/ivfT48CJQxcm3QHkjgqCaLj9vVug9jFCV8vz8jvpB+Y5JFIyhgRn4+UT0Fi7V77dyNw24zftVZ0GKv7ypA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
     <%= javascript_importmap_tags %>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body>
@@ -27,5 +29,8 @@
       <%= yield %>
     </div>
 
+    <!-- Include your JavaScript files -->
+    <%= javascript_include_tag 'practice_timer' %>
+    <%= javascript_include_tag 'practice_form' %>
   </body>
 </html>

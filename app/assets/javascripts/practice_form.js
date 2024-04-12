@@ -1,29 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const questions = document.querySelectorAll('.question-body');
-  const previousButton = document.querySelector('.previous-button');
-  const nextButton = document.querySelector('.next-button');
-  const submitButton = document.querySelector('.submit-button');
+$(function() {
+  const questions = $('.question-body');
+  const previousButton = $('.previous-button');
+  const nextButton = $('.next-button');
+  const submitButton = $('.submit-button');
 
   let currentQuestionIndex = 0;
-  questions[currentQuestionIndex].classList.remove('hidden');
-  
-  previousButton.addEventListener('click', function() {
-    questions[currentQuestionIndex].classList.add('hidden');
-    currentQuestionIndex--;
-    questions[currentQuestionIndex].classList.remove('hidden');
-    updateButtonVisibility();
+  questions.eq(currentQuestionIndex).removeClass('hidden');
+
+  previousButton.on('click', function() {
+      questions.eq(currentQuestionIndex).addClass('hidden');
+      currentQuestionIndex--;
+      questions.eq(currentQuestionIndex).removeClass('hidden');
+      updateButtonVisibility();
   });
-  
-  nextButton.addEventListener('click', function() {
-    questions[currentQuestionIndex].classList.add('hidden');
-    currentQuestionIndex++;
-    questions[currentQuestionIndex].classList.remove('hidden');
-    updateButtonVisibility();
+
+  nextButton.on('click', function() {
+      questions.eq(currentQuestionIndex).addClass('hidden');
+      currentQuestionIndex++;
+      questions.eq(currentQuestionIndex).removeClass('hidden');
+      updateButtonVisibility();
   });
-  
+
   function updateButtonVisibility() {
-    previousButton.classList.toggle('hidden', currentQuestionIndex === 0);
-    nextButton.classList.toggle('hidden', currentQuestionIndex === questions.length - 1);
-    submitButton.classList.toggle('hidden', currentQuestionIndex !== questions.length - 1);
+      previousButton.toggleClass('hidden', currentQuestionIndex === 0);
+      nextButton.toggleClass('hidden', currentQuestionIndex === questions.length - 1);
+      submitButton.toggleClass('hidden', currentQuestionIndex !== questions.length - 1);
   }
 });
