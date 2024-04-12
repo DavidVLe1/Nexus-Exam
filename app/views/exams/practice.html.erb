@@ -9,18 +9,23 @@
 
 <div class="practice-form">
   <%= form_for @practice_exam, url: submit_practice_practice_exam_path(@practice_exam), method: :post do |f| %>
-    <% @practice_exam.assembled_exam_questions.uniq { |aeq| aeq.question.prompt }.each do |assembled_exam_question| %>
-    <div class="question-body">
-      <h3><%= assembled_exam_question.question.prompt %></h3>
-      <% assembled_exam_question.question.question_choices.shuffle.each do |question_choice| %>
-        <%= radio_button_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.id %>
-        <%= label_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.response %><br>
-      <% end %>
+    <% @practice_exam.assembled_exam_questions.uniq { |aeq| aeq.question.prompt }.each_with_index do |assembled_exam_question, index| %>
+      <div id="question<%= index + 1 %>" class="question-body <%= 'hidden' unless index.zero? %>">
+        <h3><%= assembled_exam_question.question.prompt %></h3>
+        <% assembled_exam_question.question.question_choices.shuffle.each do |question_choice| %>
+          <%= radio_button_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.id %>
+          <%= label_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.response %><br>
+        <% end %>
       </div>
     <% end %>
-
-    <%= f.submit "Submit Exam" %>
+    
+    <div class="navigation-buttons">
+      <%= button_tag "Previous", type: "button", class: "previous-button hidden" %>
+      <%= button_tag "Next", type: "button", class: "next-button" %>
+      <%= f.submit "Submit Exam", class: "submit-button hidden" %>
+    </div>
   <% end %>
 </div>
 
 <script src="/assets/practice_timer.js"></script>
+<script src="/assets/practice_form.js"></script>
