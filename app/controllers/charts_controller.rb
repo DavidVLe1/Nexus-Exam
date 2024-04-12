@@ -21,7 +21,7 @@ class ChartsController < ApplicationController
   end
 
   def format_data_point(data_point)
-    [data_point[0].strftime("%Y-%m-%d %I:%M:%S %p"), data_point[1], data_point[2]]
+    [data_point[0].strftime("%-m/%-d/%y %I:%M %p"), data_point[1], data_point[2]]
   end
 
   def split_chart_data(data)

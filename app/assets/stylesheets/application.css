@@ -176,7 +176,8 @@ body {
 }
 
 .card {
-  background-color: #855DF7;
+  background-color: #6d77f6;
+  color: white;
 }
 
 .card-footer {
@@ -204,22 +205,11 @@ body {
 .incorrect-choice {
   color: red;
 }
+
 /*Charts*/
 .chart-exam-name{
   text-align: center;
 }
 .chart-container{
   background-color: #4E2C70;
-}
-.chart-container svg g.axis-x text {
-  fill: white; /* Change x-axis tick text color to white */
-}
-
-.chart-container svg g.axis-y text {
-  fill: white; /* Change y-axis tick text color to white */
-}
-
-.chart-text .btn{
-  width: 25%;
-  font-size: 1.5rem;
 }

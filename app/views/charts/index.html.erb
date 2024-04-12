@@ -1,4 +1,4 @@
-<h1>User Practice Exam Scores</h1>
+<h1>Practice Exam Scores</h1>
 <br>
 <%longer_practice_exam_data = @longer_practice_exams.map { |exam| [exam[0], exam[2]] }%>
 <%shorter_practice_exam_data = @shorter_practice_exams.map { |exam| [exam[0], exam[2]] }%>
@@ -7,37 +7,38 @@
   <%if @aws_exam.present?%>
     <div>
       <div class="chart-exam-name">
-        <h2>
-          AWS Cloud Practitioner Exams
-        </h2>
+        <h3>
+          AWS Cloud Practitioner
+        </h3>
       </div>
+      <br>
       <%if longer_practice_exam_data.present?%>
         <div>
           <h3> Long Exams</h3>
           <div class="chart-container">
             <%= column_chart longer_practice_exam_data,
-      xtitle: "Date Submitted", ytitle: "Score", 
+      xtitle: "Date Submitted", ytitle: "Score %", 
       height: "30rem",
       colors: ["#26C5F3", "#9C43F8", "#6D77F6", "#B429F9"],
       library: {
           scales: {
             x: {
               ticks: {
-                color: "white"  # Change tick color to white
+                color: "white"
               },
               title: {
-                color: "white"  # Change title color to white
+                color: "white"
               }
             },
             y: {
               ticks: {
-                color: "white",  # Change tick color to white
+                color: "white", 
               },
               title: {
-                color: "white"  # Change title color to white
+                color: "white" 
               },
-              suggestedMax: 50, # Adjust the maximum value as needed
-              suggestedMin: 0, # Adjust the minimum value as needed
+              suggestedMax: 50,
+              suggestedMin: 0, 
               beginAtZero: true
             }
           }
@@ -59,7 +60,7 @@
           <h3>Short Exams</h3>
           <div class="chart-container">
             <%= column_chart shorter_practice_exam_data,
-      xtitle: "Date Submitted", ytitle: "Score", 
+      xtitle: "Date Submitted", ytitle: "Score %", 
       height: "30rem",
       colors: ["#26C5F3", "#9C43F8", "#6D77F6", "#B429F9"],
       library: {
@@ -69,19 +70,19 @@
                 color: "white"
               },
               title: {
-                color: "white"  # Change title color to white
+                color: "white" 
               },
               xAxis: { format: 'MM/dd' }
             },
             y: {
               ticks: {
-                color: "white"  # Change tick color to white
+                color: "white" 
               },
               title: {
-                color: "white"  # Change title color to white
+                color: "white" 
               },
-              suggestedMax: 50, # Adjust the maximum value as needed
-              suggestedMin: 0, # Adjust the minimum value as needed
+              suggestedMax: 50, 
+              suggestedMin: 0, 
               beginAtZero: true
             }
           }
