@@ -1,16 +1,26 @@
-
-<h1>Taking your exam now</h1>
-
+<h1>Exam: <%=@practice_exam.exam.name%></h1>
 <%= render 'shared/errors', object: @practice_exam %> <!-- Render any validation errors if needed -->
 
-<%= form_for @practice_exam, url: submit_practice_practice_exam_path(@practice_exam), method: :post do |f| %>
-  <% @practice_exam.assembled_exam_questions.uniq { |aeq| aeq.question.prompt }.each do |assembled_exam_question| %>
-    <h3><%= assembled_exam_question.question.prompt %></h3>
-    <% assembled_exam_question.question.question_choices.shuffle.each do |question_choice| %>
-      <%= radio_button_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.id %>
-      <%= label_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.response %><br>
-    <% end %>
-  <% end %>
+<!-- Countdown Timer Container -->
+<div id="countdown-container">
+  <!-- Countdown Timer -->
+  <div id="countdown-timer" data-max-duration="<%= @practice_exam.custom_max_duration.to_i %>"></div>
+</div>
 
-  <%= f.submit "Submit Exam" %>
-<% end %>
+<div class="practice-form">
+  <%= form_for @practice_exam, url: submit_practice_practice_exam_path(@practice_exam), method: :post do |f| %>
+    <% @practice_exam.assembled_exam_questions.uniq { |aeq| aeq.question.prompt }.each do |assembled_exam_question| %>
+    <div class="question-body">
+      <h3><%= assembled_exam_question.question.prompt %></h3>
+      <% assembled_exam_question.question.question_choices.shuffle.each do |question_choice| %>
+        <%= radio_button_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.id %>
+        <%= label_tag "assembled_exam_questions[#{assembled_exam_question.id}]", question_choice.response %><br>
+      <% end %>
+      </div>
+    <% end %>
+
+    <%= f.submit "Submit Exam" %>
+  <% end %>
+</div>
+
+<script src="/assets/practice_timer.js"></script>

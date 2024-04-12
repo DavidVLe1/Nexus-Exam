@@ -213,3 +213,22 @@ body {
 .chart-container{
   background-color: #4E2C70;
 }
+
+/*Practice Form*/
+.practice-form{
+  margin-bottom: 3rem;
+}
+.question-body{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+#countdown-timer {
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000000;
+  padding: 10px;
+  border-radius: 5px;
+}
