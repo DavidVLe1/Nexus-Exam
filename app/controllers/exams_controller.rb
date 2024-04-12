@@ -37,13 +37,14 @@ class ExamsController < ApplicationController
     else
       max_duration = 90
     end
+    Time.zone = 'Central Time (US & Canada)'
 
     @practice_exam = PracticeExam.create(
       exam: @exam,
       user: current_user,
       custom_max_num_questions: quiz_length,
       custom_max_duration: max_duration,
-      start_time: Time.now,
+      start_time: Time.zone.now,
     )
     assemble_exam_questions(@practice_exam)
     # Redirect the user to the page where you render the practice exam form
