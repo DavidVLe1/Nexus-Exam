@@ -6,6 +6,9 @@ ruby "3.2.1"
 # Add Charts
 gem "chartkick"
 
+#Add Paginator
+gem 'kaminari'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
