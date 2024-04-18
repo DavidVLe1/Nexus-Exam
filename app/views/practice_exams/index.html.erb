@@ -1,16 +1,20 @@
-
 <h1>Practice Exams</h1>
 <p style="color: green"><%= notice %></p>
 <br>
+<div>
+  <div id="practice_exams" class="practice-exam-grid">
+    <% @practice_exams.each do |practice_exam| %>
+      <div class="card" style="width: 18rem;">
+        <%= render practice_exam %>
+        <div class="card-footer">
+          <small class="text-muted"><%= link_to "Show this practice exam", practice_exam %></small>
+        </div>
 
-<div id="practice_exams" class="practice-exam-grid">
-  <% @practice_exams.each do |practice_exam| %>
-    <div class="card" style="width: 18rem;">
-      <%= render practice_exam %>
-      <div class="card-footer">
-        <small class="text-muted"><%= link_to "Show this practice exam", practice_exam %></small>
       </div>
-      
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div class="paginator-container">
+    <%= paginate @practice_exams, window: 2 %>
+  </div>
 </div>
