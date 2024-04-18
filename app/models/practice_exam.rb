@@ -24,6 +24,7 @@
 #  user_id  (user_id => users.id)
 #
 class PracticeExam < ApplicationRecord
+  paginates_per 4
   belongs_to :exam
   belongs_to :user
 

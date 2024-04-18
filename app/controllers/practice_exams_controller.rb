@@ -3,7 +3,7 @@ class PracticeExamsController < ApplicationController
   before_action :authenticate_user!
   # GET /practice_exams or /practice_exams.json
   def index
-    @practice_exams = current_user.practice_exams
+    @practice_exams = current_user.practice_exams.page params[:page]
   end
 
   # GET /practice_exams/1 or /practice_exams/1.json
