@@ -1,0 +1,8 @@
+<% if current_page.last? %>
+  <!-- Next page button -->
+  <button class="next-button disabled" style=" margin-left: 1.5rem;" hidden>
+  </button>
+<% else %>
+  <!-- Next page button -->
+  <%= link_to raw('<button class="next-button btn-primary"><span class="csb ch" style="background-position: -96px 0;width: 71px;"></span><span style="display: block;">Next</span></button>'), url, class: 'pn knavi', id: 'pnnext', style: 'text-align:left;text-decoration:none', remote: remote %>
+<% end %>

@@ -1,0 +1,9 @@
+<% if current_page.first? %>
+  <!-- Previous page button -->
+
+    <button class="previous-button disabled" style=" margin-left: 1.5rem;" hidden>
+  </button>
+<% else %>
+  <!-- Previous page button -->
+  <%= link_to raw('<button class="previous-button btn-primary"><span class="csb ch" style="background-position: 0;width: 71px;"></span><span style="display: block;">Previous</span></button>'), url, class: 'pn knavi', id: 'pnprev', style: 'text-align:left;text-decoration:none', remote: remote %>
+<% end %>

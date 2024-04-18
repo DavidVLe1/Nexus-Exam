@@ -236,3 +236,39 @@ body {
 .hidden {
   display: none;
 }
+
+
+/*Paginator*/
+
+#nav a {
+  display: block;
+  color: white; 
+  margin: 1rem;
+  text-decoration: none; 
+}
+
+#nav td {
+  padding: 0;
+  text-align: center;
+}
+
+.cur {
+  font-weight: bold;
+  font-size: 2.3rem;
+  color: #26C5F3; /* Set the color of the active link to green */
+}
+
+#nav {
+  font-family: Arial, sans-serif;
+  font-size: large;
+}
+
+#nav a:hover {
+  text-decoration: underline;
+}
+
+.paginator-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  margin-bottom: 20px;
+}
