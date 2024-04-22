@@ -1,4 +1,4 @@
-module Exam::Metataggable
+module Exam::MetaTaggable
   extend ActiveSupport::Concern
   
   include ApplicationHelper # we need this so we can extend default meta tags
