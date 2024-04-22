@@ -6,7 +6,7 @@ module Exam::MetaTaggable
   def to_meta_tags
     exam_tags = {
       title: 'Nexus Exam',
-      description: 'Practice for IT Certification Exams',
+      description: "#{max_duration} minutes and #{max_num_questions}",
       og: {
         title: "#{name} Exam",
         description: "#{max_duration} minutes and #{max_num_questions}",
