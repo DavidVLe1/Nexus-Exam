@@ -17,7 +17,7 @@ class ExamsController < ApplicationController
 
   # GET /exams/1 or /exams/1.json
   def show
-    set_meta_tags @exam.to_meta_tags
+    set_meta_tags @exam
   end
 
   # GET /exams/new

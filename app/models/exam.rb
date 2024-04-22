@@ -10,12 +10,8 @@
 #  updated_at        :datetime         not null
 #
 class Exam < ApplicationRecord
-  def to_meta_tags
-    MetaTagService.defaults.deep_merge({
-      title: "#{name} Exam",
-      description: "#{max_duration} minutes and #{max_num_questions}",
-    })
-  end
+  include MetaTaggable
+
   has_many :questions
   has_many :practice_exams
 end
