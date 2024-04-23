@@ -1,52 +1,50 @@
 
+<div class="card-body">
 
+  <div id="<%= dom_id practice_exam %>" >
 
-  <div class="card-body">
+    <div>
+      <h5 class="card-title">
+        <strong>Exam:</strong>
+        <%= practice_exam.exam.name %>
+      </h5>
 
-    <div id="<%= dom_id practice_exam %>" >
+    </div>
 
-      <div>
-        <h5 class="card-title">
-          <strong>Exam:</strong>
-          <%= practice_exam.exam.name %>
-        </h5>
+    <div class="card-text">
+      <p>
+        <strong>Questions:</strong>
+        <%= practice_exam.custom_max_num_questions %>
+      </p>
 
-      </div>
+      <p>
+        <strong>Max Duration (Minutes):</strong>
+        <%= practice_exam.custom_max_duration %>
+      </p>
 
-      <div class="card-text">
-        <p>
-          <strong>Questions:</strong>
-          <%= practice_exam.custom_max_num_questions %>
-        </p>
+      <p>
+        <strong>Start time:</strong>
+        <%= practice_exam.start_time.strftime("%B, %-d %Y %I:%M %p") %>
+      </p>
 
-        <p>
-          <strong>Max Duration (Minutes):</strong>
-          <%= practice_exam.custom_max_duration %>
-        </p>
+      <p>
+        <strong>End time:</strong>
+        <%if practice_exam.end_time==nil%>
+          <%= "N/A" %>
+        <%else%>
+          <%= practice_exam.end_time.strftime("%B, %-d %Y %I:%M %p") %>
+        <%end%>
+      </p>
 
-        <p>
-          <strong>Start time:</strong>
-          <%= practice_exam.start_time.strftime("%B, %-d %Y %I:%M %p") %>
-        </p>
+      <p>
+        <strong>Score:</strong>
+        <%if practice_exam.score==nil%>
+          <%= "N/A" %>
+        <%else%>
+          <%= "#{practice_exam.score} / 100.0" %>
+        <%end%>
+      </p>
 
-        <p>
-          <strong>End time:</strong>
-          <%if practice_exam.end_time==nil%>
-            <%= "N/A" %>
-          <%else%>
-            <%= practice_exam.end_time.strftime("%B, %-d %Y %I:%M %p") %>
-          <%end%>
-        </p>
-
-        <p>
-          <strong>Score:</strong>
-          <%if practice_exam.score==nil%>
-            <%= "N/A" %>
-          <%else%>
-            <%= "#{practice_exam.score} / 100.0" %>
-          <%end%>
-        </p>
-
-      </div>
     </div>
   </div>
+</div>
