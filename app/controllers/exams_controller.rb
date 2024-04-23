@@ -47,7 +47,7 @@ class ExamsController < ApplicationController
       custom_max_duration: max_duration,
       start_time: Time.zone.now,
     )
-    assemble_exam_questions(@practice_exam)
+    PracticeExamAssembler.assemble(@practice_exam)
     # Redirect the user to the page where you render the practice exam form
     redirect_to practice_path(@practice_exam)
   end
@@ -100,42 +100,5 @@ class ExamsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def exam_params
     params.require(:exam).permit(:name, :max_num_questions, :max_duration)
-  end
-
-  #Creates assembled exam questions
-  def assemble_exam_questions(practice_exam)
-    quiz_length = practice_exam.custom_max_num_questions
-    selected_questions = select_random_questions(quiz_length)
-    selected_questions.each do |question|
-      selected_choices = select_choices(question)
-      create_assembled_exam_questions(practice_exam, question, selected_choices)
-    end
-  end
-
-  # Selects random questions from the database
-  def select_random_questions(num_questions)
-    return Question.all.sample(num_questions)
-  end
-
-  # Selects choices for a given question
-  def select_choices(question)
-    choices = question.question_choices.to_a
-    correct_choice = choices.find(&:is_correct)
-
-    incorrect_choices = choices.reject { |choice| choice.is_correct }
-
-    selected_choices = [correct_choice] + incorrect_choices.take(3)
-    return selected_choices
-  end
-
-  # Creates assembled exam questions in the database
-  def create_assembled_exam_questions(practice_exam, question, selected_choices)
-    selected_choices.each do |choice|
-      AssembledExamQuestion.create(
-        practice_exam: practice_exam,
-        question: question,
-        question_choice: choice,
-      )
-    end
   end
 end

@@ -9,14 +9,7 @@ Rails.application.routes.draw do
       post "submit_practice"
     end
   end
-
   get "/charts", to: "charts#index"
-
-  # Restricted for version 1 of mvp.
-  #resources :assembled_exam_questions
-  #resources :question_choices
-  #resources :questions
-
   get "landing/index"
   root "landing#index"
   resources :exams, except: [:destroy] do
