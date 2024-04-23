@@ -81,7 +81,6 @@ class PracticeExamsController < ApplicationController
   end
 
   private
-
   # Use callbacks to share common setup or constraints between actions.
   def set_practice_exam
     @practice_exam = PracticeExam.find(params[:id])
@@ -91,6 +90,4 @@ class PracticeExamsController < ApplicationController
   def practice_exam_params
     params.require(:practice_exam).permit(:exam_id, :user_id, :custom_max_num_questions, :custom_max_duration, :start_time, :end_time, :score)
   end
-
-
 end
