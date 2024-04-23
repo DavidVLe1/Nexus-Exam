@@ -28,20 +28,9 @@ class ExamsController < ApplicationController
   def start_practice
     @exam = Exam.find(params[:id])
     quiz_length = params[:exam][:max_num_questions].to_i
-    if quiz_length == 10
-      max_duration = 15
-    else
-      max_duration = 90
-    end
-    Time.zone = "Central Time (US & Canada)"
-    @practice_exam = PracticeExam.create(
-      exam: @exam,
-      user: current_user,
-      custom_max_num_questions: quiz_length,
-      custom_max_duration: max_duration,
-      start_time: Time.zone.now,
-    )
-    PracticeExamAssembler.assemble(@practice_exam)
+    
+    @practice_exam = @exam.start_practice_for_user(current_user, quiz_length)
+    
     redirect_to practice_path(@practice_exam)
   end
 
