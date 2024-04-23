@@ -23,15 +23,10 @@ class PracticeExamsController < ApplicationController
 
   def submit_practice
     @practice_exam = PracticeExam.find(params[:id])
-    ## user answers are submitted as array of choice IDs in the params
     user_answers = params[:assembled_exam_questions]
-    score = ScoreCalculator.calculate(user_answers, @practice_exam)
-    Time.zone = "Central Time (US & Canada)"
-
-    @practice_exam.update(
-      score: score,
-      end_time: Time.zone.now,
-    )
+    
+    @practice_exam.submit(user_answers)
+    
     redirect_to practice_exam_path(@practice_exam), notice: "Practice exam submitted successfully."
   end
 
