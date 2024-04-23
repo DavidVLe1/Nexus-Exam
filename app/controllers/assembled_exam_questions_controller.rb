@@ -58,13 +58,14 @@ class AssembledExamQuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_assembled_exam_question
-      @assembled_exam_question = AssembledExamQuestion.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def assembled_exam_question_params
-      params.require(:assembled_exam_question).permit(:practice_exam_id, :question_id, :question_choice_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_assembled_exam_question
+    @assembled_exam_question = AssembledExamQuestion.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def assembled_exam_question_params
+    params.require(:assembled_exam_question).permit(:practice_exam_id, :question_id, :question_choice_id)
+  end
 end

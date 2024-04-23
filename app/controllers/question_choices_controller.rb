@@ -58,13 +58,14 @@ class QuestionChoicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question_choice
-      @question_choice = QuestionChoice.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def question_choice_params
-      params.require(:question_choice).permit(:response, :is_correct, :question_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_question_choice
+    @question_choice = QuestionChoice.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def question_choice_params
+    params.require(:question_choice).permit(:response, :is_correct, :question_id)
+  end
 end

@@ -38,7 +38,7 @@ class ExamsController < ApplicationController
     else
       max_duration = 90
     end
-    Time.zone = 'Central Time (US & Canada)'
+    Time.zone = "Central Time (US & Canada)"
 
     @practice_exam = PracticeExam.create(
       exam: @exam,

@@ -33,7 +33,7 @@ class PracticeExamsController < ApplicationController
     ## user answers are submitted as array of choice IDs in the params
     user_answers = params[:assembled_exam_questions]
     score = calculate_score(user_answers, @practice_exam)
-    Time.zone = 'Central Time (US & Canada)'
+    Time.zone = "Central Time (US & Canada)"
 
     @practice_exam.update(
       score: score,
