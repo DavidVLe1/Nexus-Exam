@@ -42,7 +42,6 @@ class ExamsController < ApplicationController
       start_time: Time.zone.now,
     )
     PracticeExamAssembler.assemble(@practice_exam)
-    # Redirect the user to the page where you render the practice exam form
     redirect_to practice_path(@practice_exam)
   end
 
@@ -83,7 +82,7 @@ class ExamsController < ApplicationController
   def set_exam
     @exam = Exam.find(params[:id])
   end
-  
+
   def exam_params
     params.require(:exam).permit(:name, :max_num_questions, :max_duration)
   end
