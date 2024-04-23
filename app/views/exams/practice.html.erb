@@ -1,7 +1,6 @@
 <h1>Exam: <%=@practice_exam.exam.name%></h1>
-<%= render 'shared/errors', object: @practice_exam %> <!-- Render any validation errors if needed -->
+<%= render 'shared/errors', object: @practice_exam %>
 
-<!-- Countdown Timer Container -->
 <div id="countdown-container">
   <!-- Countdown Timer -->
   <div id="countdown-timer" data-max-duration="<%= @practice_exam.custom_max_duration.to_i %>"></div>
@@ -18,7 +17,7 @@
         <% end %>
       </div>
     <% end %>
-    
+
     <div class="navigation-buttons">
       <%= button_tag "Previous", type: "button", class: "previous-button hidden" %>
       <%= button_tag "Next", type: "button", class: "next-button" %>

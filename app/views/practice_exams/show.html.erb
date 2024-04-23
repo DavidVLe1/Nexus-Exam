@@ -2,9 +2,9 @@
 <p style="color: green"><%= notice %></p>
 <div class="card" style="width: 18rem;">
   <%= render @practice_exam %>
-      <div class="card-footer">
-        <small class="text-muted"><%= link_to "Back to practice exams", practice_exams_path %></small>
-      </div>
+  <div class="card-footer">
+    <small class="text-muted"><%= link_to "Back to practice exams", practice_exams_path %></small>
+  </div>
 </div>
 <br>
 <h2>Questions</h2>
@@ -20,7 +20,7 @@
           <% else %>
             <div class="incorrect-choice"><%= choice.response %></div>
           <%end%>
-          
+
         </li>
       <% end %>
     </ul>

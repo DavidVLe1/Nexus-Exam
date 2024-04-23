@@ -33,4 +33,10 @@ class PracticeExam < ApplicationRecord
   def unique_questions
     assembled_exam_questions.map(&:question).uniq
   end
+
+  def submit(user_answers)
+    score = ScoreCalculator.calculate(user_answers, self)
+    Time.zone = "Central Time (US & Canada)"
+    update(score: score, end_time: Time.zone.now)
+  end
 end
