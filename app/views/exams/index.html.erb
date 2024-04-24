@@ -1,11 +1,12 @@
-
-<h1>Exams</h1>
-<p style="color: green"><%= notice %></p>
-<br>
-<div id="exams">
-  <% @exams.each do |exam| %>
-    <p>
+<div>
+  <h1>Exams</h1>
+  <p style="color: green"><%= notice %></p>
+  <br>
+  <div id="exams">
+    <% @exams.each do |exam| %>
+      <p>
         <%= link_to exam.name, exam, class: "exam-button" %>
-    </p>
-  <% end %>
+      </p>
+    <% end %>
+  </div>
 </div>

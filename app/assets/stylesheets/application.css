@@ -242,3 +242,11 @@ body {
   justify-content: center; 
   margin-bottom: 20px;
 }
+/*breadcrumbs*/
+.breadcrumb-item.active {
+  color: white; 
+}
+.breadcrumb-item::after {
+  content: "/";
+  color: white;
+}

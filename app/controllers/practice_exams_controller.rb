@@ -3,10 +3,19 @@ class PracticeExamsController < ApplicationController
   before_action :authenticate_user!
   def index
     @practice_exams = current_user.practice_exams.page params[:page]
+    @breadcrumbs = [
+      { content: "Home", href: root_path },
+      { content: "Practice Exams", href: practice_exams_path}
+    ]
   end
 
   def show
     @practice_exam = current_user.practice_exams.find_by(id: params[:id])
+    @breadcrumbs = [
+      { content: "Home", href: root_path },
+      { content: "Practice Exams", href: practice_exams_path},
+      { content: "#{@practice_exam.user.first_name}'s Results", href: practice_exams_path(@practice_exam)}
+    ]
     if @practice_exam.nil?
       redirect_to root_path, alert: "You are not authorized to view this practice exam."
     else
