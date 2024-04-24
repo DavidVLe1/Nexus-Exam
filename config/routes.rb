@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     end
   end
   get "/charts", to: "charts#index"
-  get '/landing', to: 'landing#index', as: 'landing'
+  get "/landing", to: "landing#index", as: "landing"
   root "landing#index"
-  resources :exams, except: [:destroy] do
+  
+  resources :exams, except: [:destroy], path: "exam" do
     post "start_practice", on: :member
   end
+
   devise_for :users
 end

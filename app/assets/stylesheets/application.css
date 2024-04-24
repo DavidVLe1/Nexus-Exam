@@ -242,3 +242,7 @@ body {
   justify-content: center; 
   margin-bottom: 20px;
 }
+/*breadcrumbs*/
+.breadcrumb-item.active {
+  color: white; /* Change the color to white */
+}

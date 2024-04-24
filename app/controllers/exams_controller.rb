@@ -3,6 +3,10 @@ class ExamsController < ApplicationController
   before_action :authenticate_user!
   def index
     @exams = Exam.all
+    @breadcrumbs = [
+      { content: "Home", href: root_path },
+      { content: "Exams", href: exams_path}
+    ]
   end
 
   def practice
@@ -16,6 +20,11 @@ class ExamsController < ApplicationController
 
   def show
     set_meta_tags @exam
+    @breadcrumbs = [
+      { content: "Home", href: root_path },
+      { content: "Exams", href: exams_path },
+      { content: @exam.name, href: exam_path(@exam) }
+    ]
   end
 
   def new

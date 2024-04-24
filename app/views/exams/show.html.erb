@@ -1,29 +1,31 @@
-<h1>Exam Details</h1>
-<br>
-<p style="color: green"><%= notice %></p>
-
-<%= render @exam %>
-
 <div>
-  <%= form_for @exam, url: start_practice_exam_path(id: @exam.id), method: :post do |f| %>
-    <p>Select quiz length:</p>
-    <%= f.radio_button :max_num_questions, 10,checked: true%>
-    <%= f.label :max_num_questions, "Short (10 questions)" %>
-    <br>
-    <%= f.radio_button :max_num_questions, 60 %>
-    <%= f.label :max_num_questions, "Long (60 questions)" %>
-    <br>
-    <br>
-    <% if @exam.max_num_questions == 10 %>
-      <%= f.hidden_field :max_duration, value: 15 %>
-    <% else %>
-      <%= f.hidden_field :max_duration, value: 90 %>
-    <% end %>
+  <h1>Exam Details</h1>
+  <br>
+  <p style="color: green"><%= notice %></p>
 
-    <%= f.submit "Start Practice Exam" %>
-  <% end %>
+  <%= render @exam %>
 
   <div>
-    <%= link_to "Back to exams", exams_path %>
+    <%= form_for @exam, url: start_practice_exam_path(id: @exam.id), method: :post do |f| %>
+      <p>Select quiz length:</p>
+      <%= f.radio_button :max_num_questions, 10,checked: true%>
+      <%= f.label :max_num_questions, "Short (10 questions)" %>
+      <br>
+      <%= f.radio_button :max_num_questions, 60 %>
+      <%= f.label :max_num_questions, "Long (60 questions)" %>
+      <br>
+      <br>
+      <% if @exam.max_num_questions == 10 %>
+        <%= f.hidden_field :max_duration, value: 15 %>
+      <% else %>
+        <%= f.hidden_field :max_duration, value: 90 %>
+      <% end %>
+
+      <%= f.submit "Start Practice Exam" %>
+    <% end %>
+
+    <div>
+      <%= link_to "Back to exams", exams_path %>
+    </div>
   </div>
 </div>
