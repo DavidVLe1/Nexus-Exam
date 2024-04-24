@@ -244,5 +244,9 @@ body {
 }
 /*breadcrumbs*/
 .breadcrumb-item.active {
-  color: white; /* Change the color to white */
+  color: white; 
+}
+.breadcrumb-item::after {
+  content: "/";
+  color: white;
 }

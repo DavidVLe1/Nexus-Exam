@@ -2,7 +2,10 @@ class ChartsController < ApplicationController
   def index
     aws_exam_name = "AWS Cloud Practitioner"
     @aws_exam = Exam.find_by(name: aws_exam_name)
-
+    @breadcrumbs = [
+      { content: "Home", href: root_path },
+      { content: "Charts", href: charts_path}
+    ]
     if @aws_exam
       @chart_data = filter_chart_data(current_user.practice_exams.where(exam_id: @aws_exam.id))
       @longer_practice_exams, @shorter_practice_exams = split_chart_data(@chart_data)
