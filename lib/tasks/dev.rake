@@ -24,7 +24,7 @@ task sample_data: :environment do
       username: "#{Faker::Name.first_name.downcase}#{rand(100..999)}",
     }
   end
-  people << { first_name: "Alice", last_name: "Smith", username: "alice123" }
+  
   people << { first_name: "Bob", last_name: "Smith", username: "bob456" }
 
   people.each do |person|
@@ -36,6 +36,8 @@ task sample_data: :environment do
       last_name: person[:last_name].strip, # Trim any leading/trailing whitespace
     )
   end
+  User.create(first_name: "Alice", last_name: "Smith", username: "alice123", admin: true, email: "alice@example.com",
+  password: "password")
 
   # Generated Exams.
   aws_exam = Exam.create(

@@ -118,3 +118,6 @@ group :test do
 end
 
 gem "simple_form", "~> 5.2"
+
+gem "rails_admin", "~> 3.1"
+gem "sassc-rails"
