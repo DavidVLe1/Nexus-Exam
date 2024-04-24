@@ -11,6 +11,12 @@ class ExamsController < ApplicationController
 
   def practice
     @practice_exam = PracticeExam.find(params[:id])
+    @breadcrumbs = [
+      { content: "Home", href: root_path },
+      { content: "Exams", href: exams_path},
+      { content: @practice_exam.exam.name, href: exam_path(@practice_exam.exam) },
+      { content: "Testing...", href: practice_path(@practice_exam) }
+    ]
     # Check if the current user owns this practice exam
     unless current_user == @practice_exam.user
       redirect_to root_path, alert: "You are not authorized to view this practice exam."
@@ -40,7 +46,7 @@ class ExamsController < ApplicationController
     
     @practice_exam = @exam.start_practice_for_user(current_user, quiz_length)
     
-    redirect_to practice_path(@practice_exam)
+    redirect_to practice_path(@practice_exam,  exam_id: @exam.id)
   end
 
   def create
