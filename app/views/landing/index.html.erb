@@ -5,7 +5,7 @@
       <p>Prepare for IT certification exams with customizable practice quizzes and exams.</p>
       <!-- Call-to-Action Button -->
       <% if current_user %>
-        <%= link_to "Start Your IT Journey", "/exams", class: "btn-primary" %>
+        <%= link_to "Start Your IT Journey", "/exam", class: "btn-primary" %>
       <% end %>
     </div>
   </div>
@@ -22,6 +22,18 @@
     <div class="feature">
       <h2>Instant Scoring</h2>
       <p>Receive immediate feedback and scoring upon completing an exam.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 qr-container">
+          <h2>Scan to Use Our App</h2>
+          <%=image_tag "nexus_exam_qr_code.png" ,class:"qr_image",alt:"QR Code" %>
+      </div>
+      <div class="col-6 gif-container">
+      <h2>How to use Our App</h2>
+         <%=image_tag "nexus_exam_gif.gif",class:"nexus_exam_gif", alt:"nexus exam GIF" %>
+      </div>
     </div>
   </div>
 
