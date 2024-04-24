@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  authenticate :user, ->(user) {user.admin?} do
+
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  end
+
   
   get "charts/index"
   get "/practice/:id", to: "exams#practice", as: "practice"
