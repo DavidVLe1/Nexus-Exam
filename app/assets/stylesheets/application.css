@@ -106,9 +106,8 @@ body {
 }
 
 .qr_image {
-  width: 10rem;
-  height: 10rem;
-  padding-top: 2rem;
+  width: 89%;
+  height: 89%;
 }
 
 
@@ -266,7 +265,7 @@ body {
   color: white;
 }
 
-@media (max-width: 585px) {
+@media (max-width: 775px) {
   .col-6 {
     flex: 0 0 100%;
     max-width: 100%;
