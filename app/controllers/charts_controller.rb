@@ -1,4 +1,5 @@
 class ChartsController < ApplicationController
+  include AuthenticationConcern
   def index
     aws_exam_name = "AWS Cloud Practitioner"
     @aws_exam = Exam.find_by(name: aws_exam_name)
