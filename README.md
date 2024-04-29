@@ -61,6 +61,16 @@ A: The questions available in our system are sourced from a variety of reliable 
 
 A: In the near future, we plan to introduce two new exams to our platform: the AWS Solutions Architect exam and the AWS Cloud Developer exam. These exams will cover key concepts and skills required for roles in cloud architecture and development within the AWS ecosystem. Stay tuned for updates on their availability!
 
+#### Q: What big updates will be implemented next?
+
+A: We have exciting plans for future updates! We're considering implementing two major features:
+
+1. **Leaderboard with Flashcard Style Game**: We're exploring the idea of adding a leaderboard feature along with a flashcard-style game. In this game, users can try to answer as many flashcards correctly as possible within a set time limit. Each correct answer earns points, and users are placed on the leaderboard based on their performance and how quickly they answer each question.
+
+2. **Integration with OpenAI for Feedback**: Another feature we're considering is the integration of OpenAI for feedback on user form submissions. This would allow users to receive AI-generated feedback on their answers, providing valuable insights and guidance for improvement.
+
+Stay tuned for updates on these exciting additions to our platform!
+
 ## Contributing
 
 Thank you for considering contributing to the Exam Management System! Contributions from developers like you help improve the project and make it better for everyone. Before you get started, please take a moment to review the following guidelines:
