@@ -1,8 +1,8 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
   def index
     @exams = Exam.all
+    authorize @exams
     @breadcrumbs = [
       { content: "Home", href: root_path },
       { content: "Exams", href: exams_path}
@@ -11,6 +11,7 @@ class ExamsController < ApplicationController
 
   def practice
     @practice_exam = PracticeExam.find(params[:id])
+    authorize @practice_exam
     @breadcrumbs = [
       { content: "Home", href: root_path },
       { content: "Exams", href: exams_path},
@@ -25,6 +26,7 @@ class ExamsController < ApplicationController
   end
 
   def show
+    authorize @exam
     set_meta_tags @exam
     @breadcrumbs = [
       { content: "Home", href: root_path },
