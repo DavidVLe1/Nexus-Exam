@@ -1,7 +1,8 @@
 class PracticeExamsController < ApplicationController
   before_action :set_practice_exam, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+
   def index
+    authorize PracticeExam
     @practice_exams = current_user.practice_exams.page params[:page]
     @breadcrumbs = [
       { content: "Home", href: root_path },
@@ -10,6 +11,7 @@ class PracticeExamsController < ApplicationController
   end
 
   def show
+    authorize @practice_exam
     @practice_exam = current_user.practice_exams.find_by(id: params[:id])
     @breadcrumbs = [
       { content: "Home", href: root_path },
@@ -24,14 +26,18 @@ class PracticeExamsController < ApplicationController
   end
 
   def new
+    authorize PracticeExam
     @practice_exam = PracticeExam.new
   end
 
   def edit
+    authorize @practice_exam
   end
 
   def submit_practice
     @practice_exam = PracticeExam.find(params[:id])
+    authorize @practice_exam
+  
     user_answers = params[:assembled_exam_questions]
     
     @practice_exam.submit(user_answers)
@@ -40,6 +46,7 @@ class PracticeExamsController < ApplicationController
   end
 
   def create
+    authorize PracticeExam
     @practice_exam = PracticeExam.new(practice_exam_params)
     respond_to do |format|
       if @practice_exam.save
@@ -53,6 +60,7 @@ class PracticeExamsController < ApplicationController
   end
 
   def update
+    authorize @practice_exam
     respond_to do |format|
       if @practice_exam.update(practice_exam_params)
         format.html { redirect_to practice_exam_url(@practice_exam), notice: "Practice exam was successfully updated." }
@@ -65,6 +73,7 @@ class PracticeExamsController < ApplicationController
   end
 
   def destroy
+    authorize @practice_exam
     @practice_exam.destroy
     respond_to do |format|
       format.html { redirect_to practice_exams_url, notice: "Practice exam was successfully destroyed." }
