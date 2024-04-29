@@ -43,6 +43,24 @@ Here's a brief demo of the Exam Management System in action:
 Here's the Entity-Relationship Diagram (ERD) for the Exam Management System:
 ![325851135-8d4cc75c-6312-496e-b705-ad5853e5023b](https://github.com/DavidVLe1/nexus-exam/assets/43181047/518deac3-b551-4339-a4c5-50eb40648ebf)
 
+### FAQs or Troubleshooting:
+
+#### Q: Can I reset my password if I forget it?
+
+A: Currently, our application does not support password reset functionality. We apologize for any inconvenience this may cause. If you encounter any issues with your account or have questions, please reach out to our support team at [nexusexam@yahoo.com](mailto:nexusexam@yahoo.com) for assistance.
+
+#### Q: Can I retake an exam?
+
+A: Yes, you can retake an exam. To retake an exam, simply navigate to the exam you wish to retake by searching through the practice exam index. Once you find the exam you want to retake, copy the path to the exam, which should look like "practice/#" where # is the number associated with your exam. Then, paste this path into your browser's address bar and press Enter to start the exam again.
+
+#### Q: Where are the questions sourced from?
+
+A: The questions available in our system are sourced from a variety of reliable resources related to the specific exam topics. We retrieve information from these sources and use it to generate questions using natural language processing techniques. Our system aims to provide a comprehensive set of questions that cover various aspects of the exam topics to help users prepare effectively.
+
+#### Q: What exams will be available next in the future?
+
+A: In the near future, we plan to introduce two new exams to our platform: the AWS Solutions Architect exam and the AWS Cloud Developer exam. These exams will cover key concepts and skills required for roles in cloud architecture and development within the AWS ecosystem. Stay tuned for updates on their availability!
+
 ## Contributing
 
 Thank you for considering contributing to the Exam Management System! Contributions from developers like you help improve the project and make it better for everyone. Before you get started, please take a moment to review the following guidelines:
