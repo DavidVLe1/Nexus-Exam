@@ -1,6 +1,6 @@
 class QuestionChoicesController < ApplicationController
+  include AuthenticationConcern
   before_action :set_question_choice, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
   def index
     @question_choices = QuestionChoice.all
   end

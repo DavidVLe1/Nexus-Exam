@@ -1,6 +1,6 @@
 class PracticeExamsController < ApplicationController
   before_action :set_practice_exam, only: %i[ show edit update destroy ]
-
+  include AuthenticationConcern
   def index
     authorize PracticeExam
     @practice_exams = current_user.practice_exams.page params[:page]
