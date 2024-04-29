@@ -12,7 +12,11 @@ Welcome to the Exam Management System! This application allows users to create a
 - **Exam Timer**: Countdown timer for users to complete exams within a specified time limit.
 - **Scoring**: Automatic scoring and feedback for completed exams.
 - **User Profiles**: Users can view and update their profile details, including username, first name, and last name.
+## Demo
 
+Here's a brief demo of the Exam Management System in action:
+
+![nexus-exam-full-demo](https://github.com/DavidVLe1/nexus-exam/assets/43181047/7930a1f5-3f69-45f9-9441-647340acc19a)
 ## Installation
 
 1. Clone the repository:
