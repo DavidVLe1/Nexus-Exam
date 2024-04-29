@@ -33,8 +33,46 @@ Welcome to the Exam Management System! This application allows users to create a
 2. Explore the available exams and select one to take.
 3. Complete the exam within the allotted time and submit your answers.
 4. View your exam scores and track your progress in the charts dashboard.
-
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes.
+Thank you for considering contributing to the Exam Management System! Contributions from developers like you help improve the project and make it better for everyone. Before you get started, please take a moment to review the following guidelines:
+
+### Coding Conventions
+
+- **Classes**: Use CamelCase for class names.
+- **Symbols, Methods, and Variables**: Use snake_case.
+- **Constants**: Use ALL_UPPERCASE_LETTERS_AND_UNDERSCORES for constants.
+
+### Branch Naming Conventions
+
+When creating Git branches for your contributions, please follow these naming conventions:
+- Use your initials followed by a hyphen (`-`) and a descriptive action noun.
+- Use lowercase letters for your initials, action, and nouns.
+- Separate words in the action and noun with hyphens (`-`).
+- For example, a branch for adding a user table could be named `as-add-user-table`.
+
+### Pull Request Process
+
+1. Fork the repository and create a new branch for your feature, bug fix, or enhancement.
+2. Ensure your changes adhere to the coding conventions outlined above.
+3. Write descriptive commit messages that clearly explain the purpose of your changes.
+4. Submit a pull request with a clear title and description of the changes.
+5. Participate in the code review process and address any feedback provided by maintainers.
+
+### Testing Guidelines
+
+- Write tests for your code changes.
+- Include both unit tests and integration tests as appropriate.
+- Ensure all tests pass before submitting a pull request.
+
+### Documentation
+
+- Update project documentation to reflect any changes made to code or functionality.
+- Include clear and concise comments in your code to aid understanding for future contributors.
+
+### Issue Tracking
+
+- Check for open issues and assign yourself to issues you plan to work on.
+- Create new issues for bugs, feature requests, or enhancements as needed.
+- Link your pull requests to related issues to provide context and track progress.
 
