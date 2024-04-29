@@ -24,6 +24,7 @@ Welcome to the Exam Management System! This application allows users to create a
 - ```rails db:migrate```
 4. Start the Rails server:
 - ```rails server```
+- or ```bin/dev```
 5. Access the application in your web browser at 
 - `http://localhost:3000`.
 ## Usage
@@ -31,7 +32,7 @@ Welcome to the Exam Management System! This application allows users to create a
 1. Sign up for a new account or log in if you already have one.
 2. Explore the available exams and select one to take.
 3. Complete the exam within the allotted time and submit your answers.
-4. View your exam scores and track your progress in the dashboard.
+4. View your exam scores and track your progress in the charts dashboard.
 
 ## Contributing
 
