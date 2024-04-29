@@ -5,4 +5,8 @@ class PracticeExamPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def practice?
+    user.present? # Allow any authenticated user to access the practice action
+  end
 end

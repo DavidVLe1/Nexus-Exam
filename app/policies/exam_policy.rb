@@ -14,6 +14,16 @@ class ExamPolicy < ApplicationPolicy
     @exam = exam
   end
 
+  def index?
+    true 
+  end
+
+  def show?
+    true 
+  end
+
+
+
   def new?
     user.present? # Any authenticated user can make new exam
   end
