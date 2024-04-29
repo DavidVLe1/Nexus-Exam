@@ -15,14 +15,12 @@ class ExamPolicy < ApplicationPolicy
   end
 
   def index?
-    true 
+    user.present? 
   end
 
   def show?
-    true 
+    user.present? 
   end
-
-
 
   def new?
     user.present? # Any authenticated user can make new exam

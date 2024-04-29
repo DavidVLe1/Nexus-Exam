@@ -8,6 +8,10 @@ class ApplicationPolicy
     @record = record
   end
 
+  def landing_page?
+    true # Allow access to landing page by default
+  end
+  
   def index?
     false
   end
