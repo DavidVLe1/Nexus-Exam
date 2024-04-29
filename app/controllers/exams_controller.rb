@@ -1,8 +1,10 @@
 class ExamsController < ApplicationController
   before_action :set_exam, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  include AuthenticationConcern
+
   def index
     @exams = Exam.all
+    authorize @exams
     @breadcrumbs = [
       { content: "Home", href: root_path },
       { content: "Exams", href: exams_path}
@@ -11,6 +13,7 @@ class ExamsController < ApplicationController
 
   def practice
     @practice_exam = PracticeExam.find(params[:id])
+    authorize @practice_exam
     @breadcrumbs = [
       { content: "Home", href: root_path },
       { content: "Exams", href: exams_path},
@@ -25,6 +28,7 @@ class ExamsController < ApplicationController
   end
 
   def show
+    authorize @exam
     set_meta_tags @exam
     @breadcrumbs = [
       { content: "Home", href: root_path },
@@ -34,14 +38,17 @@ class ExamsController < ApplicationController
   end
 
   def new
+    authorize @exam
     @exam = Exam.new
   end
 
   def edit
+    authorize @exam
   end
 
   def start_practice
     @exam = Exam.find(params[:id])
+    authorize @exam
     quiz_length = params[:exam][:max_num_questions].to_i
     
     @practice_exam = @exam.start_practice_for_user(current_user, quiz_length)
@@ -51,6 +58,7 @@ class ExamsController < ApplicationController
 
   def create
     @exam = Exam.new(exam_params)
+    authorize @exam
     respond_to do |format|
       if @exam.save
         format.html { redirect_to exam_url(@exam), notice: "Exam was successfully created." }
@@ -63,6 +71,7 @@ class ExamsController < ApplicationController
   end
 
   def update
+    authorize @exam
     respond_to do |format|
       if @exam.update(exam_params)
         format.html { redirect_to exam_url(@exam), notice: "Exam was successfully updated." }
@@ -75,6 +84,7 @@ class ExamsController < ApplicationController
   end
 
   def destroy
+    authorize @exam
     @exam.destroy
     respond_to do |format|
       format.html { redirect_to exams_url, notice: "Exam was successfully destroyed." }
