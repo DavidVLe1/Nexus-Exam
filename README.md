@@ -37,6 +37,12 @@ Here's a brief demo of the Exam Management System in action:
 2. Explore the available exams and select one to take.
 3. Complete the exam within the allotted time and submit your answers.
 4. View your exam scores and track your progress in the charts dashboard.
+
+## ERD
+
+Here's the Entity-Relationship Diagram (ERD) for the Exam Management System:
+![325851135-8d4cc75c-6312-496e-b705-ad5853e5023b](https://github.com/DavidVLe1/nexus-exam/assets/43181047/518deac3-b551-4339-a4c5-50eb40648ebf)
+
 ## Contributing
 
 Thank you for considering contributing to the Exam Management System! Contributions from developers like you help improve the project and make it better for everyone. Before you get started, please take a moment to review the following guidelines:
