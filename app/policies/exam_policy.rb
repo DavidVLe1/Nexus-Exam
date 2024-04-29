@@ -13,7 +13,6 @@ class ExamPolicy < ApplicationPolicy
     @user = user
     @exam = exam
   end
-
   def index?
     user.present? 
   end
@@ -22,27 +21,20 @@ class ExamPolicy < ApplicationPolicy
     user.present? 
   end
 
-  def new?
-    user.present? # Any authenticated user can make new exam
-  end
-
-  def create?
-    new? 
-  end
-
-  def edit?
-    user.present? && exam.user == user # Allow only the owner to edit the exam
-  end
-
-  def update?
-    edit?
-  end
-
-  def destroy?
-    edit? 
-  end
 
   def start_practice?
     user.present? # Allow any authenticated user to start a practice exam
+  end
+
+  def create?
+    user.admin? # Only admins can create questions
+  end
+
+  def update?
+    user.admin? # Only admins can update questions
+  end
+
+  def destroy?
+    user.admin? # Only admins can delete questions
   end
 end

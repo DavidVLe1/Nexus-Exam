@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :exams, except: [:destroy], path: "exam" do
     post "start_practice", on: :member
   end
-
+  resources :assembled_exam_questions
+  resources :question_choices
+  resources :questions
   devise_for :users
 end
