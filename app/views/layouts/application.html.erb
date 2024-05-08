@@ -7,18 +7,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%#good use of partial!%>
     <%= render partial: "shared/cdn_assets" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%#move to cdn partial %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
     <%= javascript_importmap_tags %>
+    <%#move to cdn partial %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
 
   <body>
+    <%#good use of partial!%>
     <%= render partial: "shared/navbar" %>
 
     <div class="container">
+      <%#good use of partial!%>
       <%= render "shared/breadcrumbs" %>
       <% if notice.present? %>
         <%= render partial: "shared/flash", locals: { message: notice, css_class: "success" } %>

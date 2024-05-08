@@ -1,3 +1,4 @@
+# Maybe look intoo nesting Questions in Exams 
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show edit update destroy ]
   include AuthenticationConcern

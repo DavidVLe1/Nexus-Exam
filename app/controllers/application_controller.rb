@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :first_name, :last_name])
   end
+  # possibly duplicate ; it's already in authentication_concern.rb
+  # other controllers inherit from application_controller.rb
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
-    
+
     redirect_back fallback_location: root_url
   end
 end
