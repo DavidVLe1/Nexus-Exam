@@ -16,6 +16,7 @@
         <div>
           <h3> Long Exams</h3>
           <div class="chart-container">
+            <%# Indentation is off %>
             <%= column_chart longer_practice_exam_data,
       xtitle: "Date Submitted", ytitle: "Score %", 
       height: "30rem",
@@ -60,35 +61,35 @@
           <h3>Short Exams</h3>
           <div class="chart-container">
             <%= column_chart shorter_practice_exam_data,
-      xtitle: "Date Submitted", ytitle: "Score %", 
-      height: "30rem",
-      colors: ["#26C5F3", "#9C43F8", "#6D77F6", "#B429F9"],
-      library: {
-          scales: {
-            x: {
-              ticks: {
-                color: "white"
-              },
-              title: {
-                color: "white" 
-              },
-              xAxis: { format: 'MM/dd' }
-            },
-            y: {
-              ticks: {
-                color: "white" 
-              },
-              title: {
-                color: "white" 
-              },
-              suggestedMax: 50, 
-              suggestedMin: 0, 
-              beginAtZero: true
-            }
-          }
+              xtitle: "Date Submitted", ytitle: "Score %", 
+              height: "30rem",
+              colors: ["#26C5F3", "#9C43F8", "#6D77F6", "#B429F9"],
+              library: {
+                scales: {
+                  x: {
+                    ticks: {
+                      color: "white"
+                    },
+                    title: {
+                      color: "white" 
+                    },
+                    xAxis: { format: 'MM/dd' }
+                  },
+                  y: {
+                    ticks: {
+                      color: "white" 
+                    },
+                    title: {
+                      color: "white" 
+                    },
+                    suggestedMax: 50, 
+                    suggestedMin: 0, 
+                    beginAtZero: true
+                  }
+                }
 
-        }
-      %>
+              }
+            %>
           </div>
         </div>
       <%else%>

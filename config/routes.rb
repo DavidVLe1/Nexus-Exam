@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   get "charts/index"
+  # Could use better naming? Not sure what the difference is between exams#practice and practice_exams and exams and assembled_exam_questions
   get "/practice/:id", to: "exams#practice", as: "practice"
   post "/exam_submission", to: "practice_exams#submit_practice", as: "exam_submission"
 

@@ -1,3 +1,4 @@
+# Would `ResponsesController` be a better name for this controller? Or something along this
 class QuestionChoicesController < ApplicationController
   include AuthenticationConcern
   before_action :set_question_choice, only: %i[ show edit update destroy ]
